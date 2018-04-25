@@ -1,10 +1,10 @@
 {
   "name": "TetriX",
   "version": "1.0.0",
-  "description": "",
+  "description": "- client - server",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "node ./index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,16 +12,26 @@
     "url": "git+https://github.com/Decentrix/TetriX.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "DecentriX",
   "license": "ISC",
+  "bin": {
+    "tetrix": "./index.js"
+  },
   "bugs": {
     "url": "https://github.com/Decentrix/TetriX/issues"
   },
   "homepage": "https://github.com/Decentrix/TetriX#readme",
   "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "nodemon": "^1.17.3",
-    "pg": "^7.4.1"
+    "react": "^16.3.2",
+    "react-core": "0.0.0",
+    "react-dom": "^16.3.2",
+    "remix-core": "0.0.8",
+    "remix-lib": "^0.2.2",
+    "solc": "^0.4.23"
   }
 }
