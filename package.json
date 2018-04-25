@@ -1,10 +1,12 @@
 {
-  "name": "TetriX",
+  "name": "tetrix",
   "version": "1.0.0",
   "description": "- client - server",
   "main": "index.js",
   "scripts": {
     "start": "node ./index",
+    "server": "nodemon server/server.js",
+    "build": "webpack && npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,16 +24,25 @@
   },
   "homepage": "https://github.com/Decentrix/TetriX#readme",
   "devDependencies": {
-    "nodemon": "^1.17.3"
+    "nodemon": "^1.17.3",
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "react": "^16.3.2",
-    "react-core": "0.0.0",
     "react-dom": "^16.3.2",
     "remix-core": "0.0.8",
     "remix-lib": "^0.2.2",
-    "solc": "^0.4.23"
+    "solc": "^0.4.23",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
   }
 }
