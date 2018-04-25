@@ -4,11 +4,11 @@ module.exports = {
   //needed for webpack 4+
   mode: 'development',
   //where webpack is pulling files from
-  entry: './src/Main',
+  entry: './src/index.js',
   //where webpack is outputing normal build
   output: {
-    path: path.resolve(__dirname, './bundle'),
-    filename: './bundle',
+    path: path.resolve(__dirname, 'build'),
+    filename: './bundle.js',
   },
   //loaders and modules that webpack will need to read your specific files
   module: {
@@ -19,21 +19,22 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        use: [{
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
       }
-    //   {
-    //     test: /\.css$/,
-    //     use: [{
-    //         loader: 'style-loader'
-    //       },
-    //       {
-    //         loader: 'css-loader'
-    //       }
-    //     ]
-    //   }
     ]
   },
   devServer: {
-    publicPath: "/build/",
+    publicPath: '/build/',
+    contentBase: path.join(__dirname, 'public'),
     hot: true,
     port: 8080
   }

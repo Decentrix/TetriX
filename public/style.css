@@ -1,0 +1,87 @@
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+}
+
+.contractContainer {
+  width: 100%;
+  margin-top: 5%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* ---------------------------- APP COMPONENTS ---------------------------- */
+
+.name {
+  text-align: center;
+}
+
+.ogContainer {
+  width: 44%;
+  margin: 10px;
+  padding: 10px;
+  border: 1.5px solid lightcyan;
+}
+
+.ogContainer ul {
+  padding-right: 10px;
+}
+
+.centerPiece {
+  width: 22%;
+  margin: 10px;
+  border: 1px solid grey;
+  text-align: center;
+}
+
+.optContainer {
+  width: 44%;
+  margin: 10px;
+  padding: 10px;
+  border: 1.5px solid lightcoral;
+}
+
+/* ---------------------------- CODE CONTAINER ---------------------------- */
+
+.codeWrapper {
+  width: 100%;
+  font-family: 'Fira Mono', monospace;
+  align-content: center;
+  padding-top: 20px;
+}
+
+.lineContainer {
+  width: 100%;
+  display: inline-flex;
+  text-align: left;
+  background-color: darkgray;
+}
+
+.lineNum {
+  color: grey;
+  padding-right: 5px;
+  padding-left: 10px;
+  text-align: right;
+  border-right: 1px solid white;
+  background-color: darkgray;
+}
+
+.code {
+  width: 100%;
+  text-align: left;
+  padding: 0 20px 0 20px;
+}
+
+/* ---------------------------- TX COST ---------------------------- */
+
+.txCost {
+  text-align: right;
+}
+
+/* ---------------------------- GASBOX ---------------------------- */
+
+.gasBox {
+  width: 100%;
+  margin-top: 5%;
+  text-align: center;
+  border: 1.5px solid lightsalmon;
+}
