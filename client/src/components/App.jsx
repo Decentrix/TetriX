@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import ContractContainer from './ContractContainer.jsx';
 import GasBox from './GasBox.jsx';
+// import splitCode from '../../../src/parser';
+
+// console.log('splitCode', splitCode);
 
 class App extends Component {
   constructor(props) {

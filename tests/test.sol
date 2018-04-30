@@ -4,7 +4,8 @@ contract myContract {
   uint8 a;
   uint256 b;
   uint8 c;
-  bytes32[] d;
+  uint8 d;
+  bytes32[] e;
 
   function myContract() {
     a = 1;
