@@ -5,7 +5,7 @@ const PREPPER_MODULE = {
   /**
    * @function name: extractCode()
    * @param: third argument of process.argv
-   * @description: exracts and convert code to string from .sol file
+   * @description: extracts and convert code to string from .sol file
    * @return: converted code in string
    */
   // TODO: Test for cases where numArgs != 3
