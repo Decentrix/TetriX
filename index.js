@@ -35,7 +35,10 @@ const codeArr = WRAPPER.createCodeStrArr(source); // 2
 const origContent = WRAPPER.assembleContent(codeArr); // 
 // FIXME
 const optContent = OPTIMIZER.optimize(origContent); // returns optimized contract as a string
+// console.log('optContent', optContent);
+// const optContent = Object.assign(origContent);
 const origContractObj = CONTRACT.compileContract(source);
+console.log(JSON.stringify(origContractObj));
 CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
 
 // console.log(contractObj.bytecode);

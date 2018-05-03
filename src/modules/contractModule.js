@@ -20,12 +20,25 @@ const CONTRACT_MODULE = {
    */
   compileContract: source => {
     const contractName = /^contract\s(.*)\s\{/gm.exec(source);
+<<<<<<< HEAD
+    console.log(`contractName = ${contractName[1]}`);
+    // second argument is the number of different contracts you are attempting to compile
+    try {
+      const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
+      console.log(`Gas Estimate from SOLC = ${JSON.stringify(contractData.gasEstimates)}`);
+      console.log(JSON.stringify(contractData));
+      return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);
+    } catch (error) {
+      throw new Error('error in compile contract');
+    }
+=======
     console.log(`contractName = ${contractName}`);
     // second argument is the number of different contracts you are attempting to compile
     const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
     console.log(`Gas Estimate from SOLC = ${JSON.stringify(contractData.gasEstimates)}`);
     console.log(JSON.stringify(contractData));
     return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);
+>>>>>>> dfc9d88809846603e87d84adac968811301b11fe
   },
 
   /**
@@ -38,21 +51,6 @@ const CONTRACT_MODULE = {
         resolve(web3.eth.getAccounts());
       });
     }
-    // getAccounts();
-
-    // accounts = await web3.eth.getAccounts();
-
-    // myContract = await new web3.eth.Contract(JSON.parse(interface))
-    //   .deploy({ data: bytecode })
-    //   .send({
-    //     from: accounts[0],
-    //     gas: '1000000',
-    //   });
-
-    // web3.eth.getAccounts(function(error, result) {
-    //   if (error != null) console.log('Could not get accounts');
-    //   console.log(result[0]);
-    // });
 
     function testDeployContract(accounts) {
       return new Promise((resolve, reject) => {
@@ -68,7 +66,7 @@ const CONTRACT_MODULE = {
         resolve(contract);
       });
     }
-
+    
     function getContractAddress(contract) {
       return new Promise((resolve, reject) => {
         console.log(`Contract Address = ${contract.options.address}`);

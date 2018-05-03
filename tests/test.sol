@@ -6,11 +6,11 @@ contract myContract {
 			bytes1 gender;
 			uint8 age;
 		}
-		struct tester {
-			string name;
-			bytes1 test;
-			uint8 height;
-		}
+		// struct tester {
+		// 	string name;
+		// 	bytes1 test;
+		// 	uint8 height;
+		// }
 	address tester;
 	bool test;	
 	bytes32 teststr;
@@ -21,7 +21,6 @@ contract myContract {
   bytes32[] d;
 	bytes1 oneByte;
 	bytes8 eightByte;
-	int128 128int;
 
   constructor() public {
 		test = true;
@@ -32,7 +31,6 @@ contract myContract {
 		teststr = "hi";
 		oneByte = "1";
 		eightByte = "hey";
-		128int = 123;
 		Player storage sender = players[msg.sender];
 		sender.age = 10;
 		sender.gender = "M";
