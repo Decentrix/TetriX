@@ -8,9 +8,9 @@ class ContractContainer extends Component {
   render() {
     return (
       <div className="contractContainer">
-        <OriginalContract orgCode={this.props.orgCode}/>
-        <CenterPane orgCode={this.props.orgCode}  optCode={this.props.optCode}/>
-        <OptimizedContract optCode={this.props.optCode}/>
+        <OriginalContract orgCode={this.props.orgCode} orgCost={this.props.orgCost}/>
+        <CenterPane orgCode={this.props.originalCode} optCode={this.props.optimizedCode}/>
+        <OptimizedContract optCode={this.props.optCode} optCost={this.props.optCost}/>
       </div>
     );
   }

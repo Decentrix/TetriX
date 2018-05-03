@@ -1,6 +1,18 @@
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  margin: 0;
 }
+
+/* ---------------------------- STATIC COMPONENTS ---------------------------- */
+.header {
+  background-color: rgb(135, 196, 231) !important;
+}
+
+.navigation {
+  text-align: center;
+}
+
+/* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
 
 .contractContainer {
   width: 100%;
@@ -51,15 +63,18 @@ body {
 
 .lineContainer {
   width: 100%;
+  color: white;
   display: inline-flex;
   text-align: left;
-  background-color: darkgray;
+  background-color: rgba(16, 13, 20, 0.952);
 }
 
 .lineNum {
-  color: grey;
+  width: 50px;
+  height: 100%;
+  color: rgb(100, 98, 98);
   padding-right: 5px;
-  padding-left: 10px;
+  padding-top: 5px;
   text-align: right;
   border-right: 1px solid white;
   background-color: darkgray;
@@ -68,7 +83,7 @@ body {
 .code {
   width: 100%;
   text-align: left;
-  padding: 0 20px 0 20px;
+  padding: 5px 20px 0 20px;
 }
 
 /* ---------------------------- TX COST ---------------------------- */
@@ -84,4 +99,11 @@ body {
   margin-top: 5%;
   text-align: center;
   border: 1.5px solid lightsalmon;
+}
+
+/* ---------------------------- CENTERPANE ---------------------------- */
+
+#changeOne {
+  margin-top: 55%;
+  margin-bottom: 16%;
 }

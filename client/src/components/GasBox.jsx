@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class GasBox extends Component {
   render() {
-    const gasSaved = ['20000 ETH'];
+    const gasSaved = this.props.difference;
 
     return (
       <div className="gasBox">
-        <ul><b>Gas Saved</b>: {gasSaved}</ul>
+        <ul><b>GAS SAVED:</b> {gasSaved}</ul>
       </div>
     )
   }

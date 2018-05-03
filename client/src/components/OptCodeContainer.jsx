@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 
-class OgCodeContainer extends Component {
+class OptCodeContainer extends Component {
   render() {
     const num = 1;
-    const ogCode = this.props.orgCode;
-    const listCode = ogCode.map((code, i) =>
+    const optCode = this.props.optCode;
+    const listCode = optCode.map((code, i) =>
       <div className="lineContainer" id={i} key={i}>
         <div className="lineNum" id={i}>{i + num}</div>
-        <div className="code" id={i}>{code}</div>
+        <div className="code" style={{whiteSpace:'pre-wrap'}} id={i} >{code}</div>
       </div>
     );
 
@@ -20,4 +20,4 @@ class OgCodeContainer extends Component {
   }
 }
 
-export default OgCodeContainer;
+export default OptCodeContainer;

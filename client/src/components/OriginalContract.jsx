@@ -5,7 +5,7 @@ import OgCodeContainer from './OgCodeContainer.jsx';
 
 class OriginalContract extends Component {
   render() {
-    const txCost = ['240000 ETH'];
+    const txCost = this.props.orgCost;
 
     return (
       <div className="ogContainer">

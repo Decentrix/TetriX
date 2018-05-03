@@ -4,7 +4,7 @@ module.exports = {
   //needed for webpack 4+
   mode: 'development',
   //where webpack is pulling files from
-  entry: './src/index.js',
+  entry: './client/src/index.js',
   //where webpack is outputing normal build
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -34,8 +34,9 @@ module.exports = {
   },
   devServer: {
     publicPath: '/build/',
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'client/public'),
     hot: true,
     port: 8080
   }
 }
+console.log(__dirname);
