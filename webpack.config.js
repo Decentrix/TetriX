@@ -10,6 +10,9 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: './bundle.js',
   },
+  node: {
+    fs: "empty"
+ },
   //loaders and modules that webpack will need to read your specific files
   module: {
     rules: [{

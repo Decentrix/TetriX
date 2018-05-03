@@ -1,4 +1,4 @@
-pragma solidity ^4.0.0;
+pragma solidity ^0.4.21;
 
 contract myContract {
 		struct Player {
