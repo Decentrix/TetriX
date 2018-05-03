@@ -36,7 +36,7 @@ const origContent = WRAPPER.assembleContent(codeArr); //
 // FIXME
 const optContent = OPTIMIZER.optimize(origContent); // returns optimized contract as a string
 const origContractObj = CONTRACT.compileContract(source);
-// console.log(origContractObj.assembly);
+console.log(JSON.stringify(origContractObj));
 CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
 
 // console.log(contractObj.bytecode);
