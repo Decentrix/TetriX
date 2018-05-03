@@ -39,7 +39,7 @@ const optContent = OPTIMIZER.optimize(origContent); // returns optimized contrac
 // const optContent = Object.assign(origContent);
 const origContractObj = CONTRACT.compileContract(source);
 console.log(JSON.stringify(origContractObj));
-// CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
+CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
 
 // console.log(contractObj.bytecode);
 
