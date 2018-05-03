@@ -21,7 +21,6 @@ const CONTRACT_MODULE = {
   compileContract: source => {
     const contractName = /^contract\s(.*)\s\{/gm.exec(source);
     console.log(`contractName = ${contractName}`);
-    // const contractName = /^(?!\/\/)\s+contract\s(.*)\s\{/gm.exec(source);
     // second argument is the number of different contracts you are attempting to compile
     const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
     console.log(`Gas Estimate from SOLC = ${JSON.stringify(contractData.gasEstimates)}`);
@@ -91,7 +90,6 @@ const CONTRACT_MODULE = {
 
   estimateGas: bytecode => {
     console.log('estimating gas');
-
     let gasEstimate = web3.eth.estimateGas({ data: bytecode });
     console.log('GAS ESTIMATE\n', gasEstimate);
   },
