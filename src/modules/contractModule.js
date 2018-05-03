@@ -24,7 +24,6 @@ const CONTRACT_MODULE = {
     // const contractName = /^(?!\/\/)\s+contract\s(.*)\s\{/gm.exec(source);
     // second argument is the number of different contracts you are attempting to compile
     const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
-    console.log(`Gas Estimate from SOLC = ${JSON.stringify(contractData.gasEstimates)}`);
     return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);
   },
 
