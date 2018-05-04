@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const WRAPPER_MODULE = {
+module.exports = {
   // TODO: Test for cases where code` has \n in string
   /**
    * @function name: createCodeStrArr()
@@ -22,15 +22,16 @@ const WRAPPER_MODULE = {
    *   in client
    * @return: content for client to use in string
    */
-  assembleContent: (origContent, optContent, origCost, optCost) => {
+  assembleFile: (oldContract, newContract, oldGas, newGas) => {
     // console.log(`module.exports =  ${origContent}`);
     // TODO: FIX OPTCONTENT
+    console.log(oldContract);
     return `module.exports =  { 
-      origContract: ${JSON.stringify(origContent)}, 
-      optContract: ${JSON.stringify(origContent)}, 
-      origCost,
-      optCost,
-      difference: ${origCost - optCost},};`;
+      oldContract: ${JSON.stringify(oldContract)}, 
+      newContract: ${JSON.stringify(newContract)}, 
+      oldGas,
+      newGas,
+      difference: ${oldGas - newGas},};`;
   },
 
   /**
@@ -39,13 +40,25 @@ const WRAPPER_MODULE = {
    * @description: writes to file that contains the object assembled for client
    * @return: none
    */
-  writeToFile: fileContent => {
-    const filepath = path.resolve(__dirname, '../../client/assets/sourceObject.js');
+  writeToFile: (oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
+    const filepath = path.resolve(__dirname, '../client/assets/sourceObject.js');
+    const fileContent = 
+    `module.exports =  { 
+      oldContract: {
+        info: ${JSON.stringify(oldContract)}, 
+        source: ${JSON.stringify(oldSource)},
+        gasEst: ${oldGas},
+      },
+      newContract: {
+        info: ${JSON.stringify(newContract)}, 
+        source: ${JSON.stringify(newSource)},
+        gasEst: ${newGas},
+      },
+      difference: ${oldGas - newGas},
+    };`;
     fs.writeFile(filepath, fileContent, err => {
       if (err) throw err;
       console.log(`The file was succesfully saved!`);
     });
   },
 };
-
-module.exports = WRAPPER_MODULE;

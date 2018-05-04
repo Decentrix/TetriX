@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PREPPER_MODULE = {
+module.exports = {
   /**
    * @function name: extractCode()
    * @param: third argument of process.argv
@@ -28,7 +28,7 @@ const PREPPER_MODULE = {
    * @description: parses through contract and creates an object ready for optimizer
    * @return: array of objects { type, varName }
    */
-  parseContract: source => {},
+  parseCode: source => {},
 
   /**
    * @function name: parseArr()
@@ -38,5 +38,3 @@ const PREPPER_MODULE = {
    */
   parseArr: () => {},
 };
-
-module.exports = PREPPER_MODULE;
