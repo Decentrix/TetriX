@@ -20,17 +20,17 @@
  *    B. @function wM.assembleContent() Assemble actual object required to display contract codes in client // DONE
  *    C. @function wM.writeToFile() Write to file the assembled content
  */
-const path = require('path');
-const fs = require('fs');
-const PREPPER = require('./src/modules/prepperModule'); // Preps the contract for optimization
-const OPTIMIZER = require('./src/modules/optimizerModule'); // Optimizes contract
-const CONTRACT = require('./src/modules/contractModule'); // Contract related methods
-const WRAPPER = require('./src/modules/wrapperModule'); // Readies contract data for client
-const childProcess = require('child_process');
-
 if(process.argv[2] === '-v') {
+	const childProcess = require('child_process');
 	childProcess.fork('server/server.js');
 } else {
+	const path = require('path');
+	const fs = require('fs');
+	const PREPPER = require('./src/modules/prepperModule'); // Preps the contract for optimization
+	const OPTIMIZER = require('./src/modules/optimizerModule'); // Optimizes contract
+	const CONTRACT = require('./src/modules/contractModule'); // Contract related methods
+	const WRAPPER = require('./src/modules/wrapperModule'); // Readies contract data for client
+
 	const contractPath = process.argv.slice(2);
 	const source = PREPPER.extractCode(contractPath); // 1A
 	const sourceArr = PREPPER.separateContracts(source);
@@ -41,13 +41,13 @@ if(process.argv[2] === '-v') {
 	const origContractObj = CONTRACT.compileContract(source);
 	// console.log(origContractObj.assembly);
 	CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
-	
-	// console.log(contractObj.bytecode);
-	
-	// CONTRACT.estimateGas(contractObj.bytecode);
-	// console.log(optContent);
-	
-	
-	// TODO: do stuff with the second contract copy
+		
+		// console.log(contractObj.bytecode);
+		
+		// CONTRACT.estimateGas(contractObj.bytecode);
+		// console.log(optContent);
+		
+		
+		// TODO: do stuff with the second contract copy
 	WRAPPER.writeToFile(origContent, optContent);
 }
