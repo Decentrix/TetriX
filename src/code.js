@@ -3,6 +3,21 @@ const path = require('path');
 
 module.exports = {
   /**
+   * @function name: extractContractNames()
+   * @param: converted code in string
+   * @description: compiles the contract
+   * @return: object that has the contract's assembly code, bytecode, gasEstimates, opcodes
+   *
+   */
+  extractContractNames: source => {
+    const rgx = /^contract\s(.*)\s\{/gm;
+    const contracts = source.match(rgx);
+    const nameRgx = /\s(.*)\b/g;
+    return (contractNames = contracts.map(contract => {
+      return contract.match(nameRgx)[0].slice(1);
+    }));
+  },
+  /**
    * @function name: extractCode()
    * @param: third argument of process.argv
    * @description: extracts and convert code to string from .sol file
@@ -21,20 +36,14 @@ module.exports = {
     }
     return source;
   },
-  
-  /**
-   * @function name: parseContract()
-   * @param: contract as a string
-   * @description: parses through contract and creates an object ready for optimizer
-   * @return: array of objects { type, varName }
-   */
-  parseCode: source => {},
 
-  /**
-   * @function name: parseArr()
-   * @param:
-   * @description:
-   * @return:
-   */
-  parseArr: () => {},
+  separateContracts: source => {
+    const rgx = /^(?!\s)\}/gm;
+    return source
+      .split(rgx)
+      .slice(0, -1)
+      .map(contract => {
+        return contract + '\n}';
+      });
+  },
 };

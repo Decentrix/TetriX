@@ -10,13 +10,13 @@ let myContract;
 let origContract;
 let newContract;
 
-function getAccounts() {
+const getAccounts = () => {
   return new Promise((resolve, reject) => {
     resolve(web3.eth.getAccounts());
   });
-}
+};
 
-function testDeployContract(accounts) {
+const testDeployContract = accounts => {
   return new Promise((resolve, reject) => {
     let contract = new web3.eth.Contract(JSON.parse(interface))
       .deploy({
@@ -29,22 +29,23 @@ function testDeployContract(accounts) {
       });
     resolve(contract);
   });
-}
+};
 
-function getContractAddress(contract) {
+const getContractAddress = contract => {
   return new Promise((resolve, reject) => {
     // console.log('contract', contract);
     console.log(`Contract Address = ${contract.options.address}`);
     resolve(contract);
   });
-}
+};
 
-async function getGasEstimate(contract) {
+const getGasEstimate = async contract => {
   let gas = await web3.eth.estimateGas({ data: bytecode });
   return web3.eth.estimateGas({ data: bytecode });
-}
+};
 
 module.exports = {
+
   /**
    * @function name: compileContract()
    * @param: converted code in string
@@ -53,21 +54,22 @@ module.exports = {
    *
    */
   compileContract: async source => {
-    const contractName = /^contract\s(.*)\s\{/gm.exec(source);
-    console.log(`contractName = ${contractName[1]}`);
-    // second argument is the number of different contracts you are attempting to compile
     try {
-      const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
-      // console.log(source);
+      // const contractNames = solc.compile(source, 1).contracts[`:${contractName[4]}`];
+      const contractNames = Object.keys(solc.compile(source, 1).contracts);
+      for ( let i = 0; i < contractNames.length; i++) {
+        console.log(contractNames[i]);
+      }
+      // console.log(contractNames);
       return ({ source, assembly, bytecode, opcodes, interface } = contractData);
     } catch (error) {
-      throw new Error('error in compile contract');
+      throw new Error('Error in compiling contract');
     }
   },
 
   /**
    * @function name: startTestNetwork
-   * @param:
+   * @param: bytecode, interface from contractData
    */
   startTestNetwork: (bytecode, interface) => {
     return new Promise((resolve, reject) => {
