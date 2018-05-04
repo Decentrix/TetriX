@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
@@ -8,25 +8,16 @@ import ContractContainer from './ContractContainer.jsx';
 import Assembly from './Assembly.jsx';
 
 
-class Navigation extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Router>
-          <div>
-            <Drawer className="navigation"
-            containerStyle={{'position': 'absolute', 'top': '64px', 'width': '100px'}}>
-              <MenuItem><NavLink exact to="/">C</NavLink></MenuItem>
-              <MenuItem><NavLink exact to="/assembly">A</NavLink></MenuItem>
-              <MenuItem>B+O</MenuItem>
-              <MenuItem>G</MenuItem>
-              <MenuItem>I</MenuItem>
-            </Drawer>
-          </div>
-        </Router>
-      </MuiThemeProvider>
-    )
-  }
-}
+const Navigation = () => (
+  <MuiThemeProvider>
+      <Drawer className="navigation"
+        containerStyle={{ 'position': 'absolute', 'top': '64px', 'width': '100px' }}>
+        <NavLink style={{ textDecoration: 'none' }} exact to="/"><MenuItem>C</MenuItem></NavLink>
+        <NavLink style={{ textDecoration: 'none' }} to="/assembly"><MenuItem>A</MenuItem></NavLink>
+        <NavLink style={{ textDecoration: 'none' }} to="/bytecodeOpcode"><MenuItem>B+O</MenuItem></NavLink>
+        <NavLink style={{ textDecoration: 'none' }} to="/interface"><MenuItem>I</MenuItem></NavLink>
+      </Drawer>
+  </MuiThemeProvider>
+)
 
 export default Navigation;

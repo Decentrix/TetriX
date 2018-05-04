@@ -4,17 +4,32 @@ body {
 }
 
 /* ---------------------------- STATIC COMPONENTS ---------------------------- */
+
 .header {
   background-color: rgb(135, 196, 231) !important;
+  display: flex;
+  flex-direction: column;
+}
+.mainContainer {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
 }
 
 .navigation {
   text-align: center;
+  display: flex;
+  width: 100px;
 }
 
 .main {
   display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 20px;
 }
+
 /* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
 
 .contractContainer {

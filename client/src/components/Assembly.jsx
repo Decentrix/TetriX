@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-class Assembly extends Component {
-  render() {
-    return(
-      <div>
-        Assembly
-      </div>
-    )
-  }
+const Assembly = () => {
+  return (
+    <div className="assembly">
+      Assembly
+    </div>
+  )
 }
 
 
