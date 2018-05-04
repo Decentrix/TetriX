@@ -10,29 +10,25 @@ module.exports = {
    * @return: array of string - source trimmed by newlines
    */
   createCodeStrArr: source => {
-    // console.log('original sourceeeeeeeeeeeee', source);
     return source.trim().split('\n');
   },
 
-  /**
-   * @function name: assembleContent()
-   * @param: origContent in string, optContent in string,
-   *   origCost in int, optCost in int
-   * @description: assembles object required to display contract codes
-   *   in client
-   * @return: content for client to use in string
-   */
-  assembleFile: (oldContract, newContract, oldGas, newGas) => {
-    // console.log(`module.exports =  ${origContent}`);
-    // TODO: FIX OPTCONTENT
-    console.log(oldContract);
-    return `module.exports =  { 
-      oldContract: ${JSON.stringify(oldContract)}, 
-      newContract: ${JSON.stringify(newContract)}, 
-      oldGas,
-      newGas,
-      difference: ${oldGas - newGas},};`;
-  },
+  // /**
+  //  * @function name: assembleContent()
+  //  * @param: origContent in string, optContent in string,
+  //  *   origCost in int, optCost in int
+  //  * @description: assembles object required to display contract codes
+  //  *   in client
+  //  * @return: content for client to use in string
+  //  */
+  // assembleFile: (oldContract, newContract, oldGas, newGas) => {
+  //   return `module.exports =  { 
+  //     oldContract: ${JSON.stringify(oldContract)}, 
+  //     newContract: ${JSON.stringify(newContract)}, 
+  //     oldGas,
+  //     newGas,
+  //     difference: ${oldGas - newGas},};`;
+  // },
 
   /**
    * @function name: writeToFile()

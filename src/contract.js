@@ -54,16 +54,20 @@ module.exports = {
    *
    */
   compileContract: async source => {
+    const rgx = /^contract\s(.*)\s\{/gm;
+    const contracts = source.match(rgx);
+    const nameRgx = /\s(.*)\b/g;
+    const contractName = contracts.map(contract => {
+      return contract.match(nameRgx)[0].slice(1);
+    });
+    console.log('contractName = ', contractName);
+    // second argument is the number of different contracts you are attempting to compile
     try {
-      // const contractNames = solc.compile(source, 1).contracts[`:${contractName[4]}`];
-      const contractNames = Object.keys(solc.compile(source, 1).contracts);
-      for ( let i = 0; i < contractNames.length; i++) {
-        console.log(contractNames[i]);
-      }
-      // console.log(contractNames);
+      const contractData = solc.compile(source, 1).contracts[`:${contractName[0]}`];
+      // console.log(source);
       return ({ source, assembly, bytecode, opcodes, interface } = contractData);
     } catch (error) {
-      throw new Error('Error in compiling contract');
+      throw new Error('error in compile contract');
     }
   },
 

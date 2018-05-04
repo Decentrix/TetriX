@@ -30,34 +30,27 @@ if (process.argv[2] === '-v') {
   const childProcess = require('child_process');
   childProcess.fork('server/server.js');
 } else {
-  // const path = require('path');
-  // const fs = require('fs');
-  // const PREPPER = require('./src/modules/prepperModule'); // Preps the contract for optimization
-  // const OPTIMIZER = require('./src/modules/optimizerModule'); // Optimizes contract
-  // const CONTRACT = require('./src/modules/contractModule'); // Contract related methods
-  // const WRAPPER = require('./src/modules/wrapperModule'); // Readies contract data for client
-
   const code = require('./src/code'); // Preps the contract for optimization
   const opt = require('./src/opt'); // Optimizes contract
   const contract = require('./src/contract'); // Contract related methods
   const file = require('./src/file'); // Readies contract data for client
   //---------\\
-
   (async function() {
-    const contractPath = process.argv.slice(2); // STEP 1
+		const contractPath = process.argv.slice(2); // STEP 1		
 		console.log(`CONTRACT PATH = ${contractPath}`);
 		const oldSource = code.extractCode(contractPath); // STEP 2
 		
-		// const newSource = opt.optimize(oldSource); // STEP 3
+		const newSource = opt.optimize(oldSource); // STEP 3
 		
-    // const oldStrArr = file.createCodeStrArr(oldSource); // STEP 4
-    // const newStrArr = file.createCodeStrArr(newSource); // STEP 4
+    const oldStrArr = file.createCodeStrArr(oldSource); // STEP 4
+    const newStrArr = file.createCodeStrArr(newSource); // STEP 4
 
-    const oldContractObj = await contract.compileContract(oldSource); // STEP 5A
-    // oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface); // STEP 5B
-    // const newContractObj = await contract.compileContract(newSource); // STEP 5A
-    // newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface); // STEP 5B
+		const oldContractObj = await contract.compileContract(oldSource); // STEP 5A
+		// contract.massDeployer(oldContractObj);
+		oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface); // STEP 5B
+    const newContractObj = await contract.compileContract(newSource); // STEP 5A
+    newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface); // STEP 5B
 
-    // file.writeToFile(oldContractObj, newContractObj, oldStrArr, newStrArr, oldGas, newGas); // STEP 6
+    file.writeToFile(oldContractObj, newContractObj, oldStrArr, newStrArr, oldGas, newGas); // STEP 6
   })();
 }
