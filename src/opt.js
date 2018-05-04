@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const OPTIMIZER_MODULE = {
+module.exports = {
   /**
    * @function name: optimize()
    * @param: contract to be optimized (type string)
@@ -151,5 +151,3 @@ const OPTIMIZER_MODULE = {
 		return result;
 	}
 };
-
-module.exports = OPTIMIZER_MODULE;
