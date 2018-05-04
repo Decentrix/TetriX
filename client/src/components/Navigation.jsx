@@ -8,25 +8,20 @@ import ContractContainer from './ContractContainer.jsx';
 import Assembly from './Assembly.jsx';
 
 
-class Navigation extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-        <Router>
-          <div>
-            <Drawer className="navigation"
-            containerStyle={{'position': 'absolute', 'top': '64px', 'width': '100px'}}>
-              <MenuItem><NavLink exact to="/">C</NavLink></MenuItem>
-              <MenuItem><NavLink exact to="/assembly">A</NavLink></MenuItem>
-              <MenuItem>B+O</MenuItem>
-              <MenuItem>G</MenuItem>
-              <MenuItem>I</MenuItem>
-            </Drawer>
-          </div>
-        </Router>
-      </MuiThemeProvider>
-    )
-  }
+const Navigation = () => {
+	const removeUnderline = {'text-decoration': 'none'}
+	return (
+		<MuiThemeProvider>
+			<Drawer className="navigation"
+			containerStyle={{'position': 'absolute', 'top': '64px', 'width': '100px'}}>
+				<NavLink exact to="/" style={removeUnderline}><MenuItem>C</MenuItem></NavLink>
+				<NavLink to="/assembly" style={removeUnderline}><MenuItem>A</MenuItem></NavLink>
+				<MenuItem style={removeUnderline}>B+O</MenuItem>
+				<MenuItem style={removeUnderline}>G</MenuItem>
+				<MenuItem style={removeUnderline}>I</MenuItem>
+			</Drawer>
+		</MuiThemeProvider>
+	)
 }
 
 export default Navigation;
