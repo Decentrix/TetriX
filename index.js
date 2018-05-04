@@ -33,7 +33,6 @@ if(process.argv[2] === '-v') {
 
 	const contractPath = process.argv.slice(2);
 	const source = PREPPER.extractCode(contractPath); // 1A
-	const sourceArr = PREPPER.separateContracts(source);
 	const codeArr = WRAPPER.createCodeStrArr(source); // 2
 	const origContent = WRAPPER.assembleContent(codeArr); // 
 	// FIXME

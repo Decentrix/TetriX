@@ -25,11 +25,20 @@ const CONTRACT_MODULE = {
 		const contractName = contracts.map((contract) => {
 			return contract.match(nameRgx)[0].slice(1);
 		})
-		//const contractName = /^contract\s(.*)\s\{/gm.exec(source);
+    // const contractName = /^contract\s(.*)\s\{/gm.exec(source);
+    // console.log(`contractName = ${contractName[1]}`);
+    // second argument is the number of different contracts you are attempting to compile
+    try {
+      const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
+      console.log(`Gas Estimate from SOLC = ${JSON.stringify(contractData.gasEstimates)}`);
+      console.log(JSON.stringify(contractData));
+      return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);
+    } catch (error) {
+      throw new Error('error in compile contract');
+    }
     console.log(`contractName = ${contractName}`);
     // second argument is the number of different contracts you are attempting to compile
     const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
-    return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);
   },
 
   /**
@@ -42,21 +51,6 @@ const CONTRACT_MODULE = {
         resolve(web3.eth.getAccounts());
       });
     }
-    // getAccounts();
-
-    // accounts = await web3.eth.getAccounts();
-
-    // myContract = await new web3.eth.Contract(JSON.parse(interface))
-    //   .deploy({ data: bytecode })
-    //   .send({
-    //     from: accounts[0],
-    //     gas: '1000000',
-    //   });
-
-    // web3.eth.getAccounts(function(error, result) {
-    //   if (error != null) console.log('Could not get accounts');
-    //   console.log(result[0]);
-    // });
 
     function testDeployContract(accounts) {
       return new Promise((resolve, reject) => {
@@ -72,7 +66,7 @@ const CONTRACT_MODULE = {
         resolve(contract);
       });
     }
-
+    
     function getContractAddress(contract) {
       return new Promise((resolve, reject) => {
         console.log(`Contract Address = ${contract.options.address}`);
@@ -94,7 +88,6 @@ const CONTRACT_MODULE = {
 
   estimateGas: bytecode => {
     console.log('estimating gas');
-
     let gasEstimate = web3.eth.estimateGas({ data: bytecode });
     console.log('GAS ESTIMATE\n', gasEstimate);
   },
