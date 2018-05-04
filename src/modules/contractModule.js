@@ -19,9 +19,14 @@ const CONTRACT_MODULE = {
    *
    */
   compileContract: source => {
-    const contractName = /^contract\s(.*)\s\{/gm.exec(source);
+		const rgx = /^contract\s(.*)\s\{/gm;
+		const contracts = source.match(rgx);
+		const nameRgx = /\s(.*)\b/g;
+		const contractName = contracts.map((contract) => {
+			return contract.match(nameRgx)[0].slice(1);
+		})
+		//const contractName = /^contract\s(.*)\s\{/gm.exec(source);
     console.log(`contractName = ${contractName}`);
-    // const contractName = /^(?!\/\/)\s+contract\s(.*)\s\{/gm.exec(source);
     // second argument is the number of different contracts you are attempting to compile
     const contractData = solc.compile(source, 1).contracts[`:${contractName[1]}`];
     return ({ source, assembly, bytecode, gasEstimates, opcodes, interface } = contractData);

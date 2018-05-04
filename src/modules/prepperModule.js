@@ -20,23 +20,14 @@ const PREPPER_MODULE = {
       throw new Error('Path does not exist');
     }
     return source;
-  },
-  
-  /**
-   * @function name: parseContract()
-   * @param: contract as a string
-   * @description: parses through contract and creates an object ready for optimizer
-   * @return: array of objects { type, varName }
-   */
-  parseContract: source => {},
-
-  /**
-   * @function name: parseArr()
-   * @param:
-   * @description:
-   * @return:
-   */
-  parseArr: () => {},
+	},
+	
+	separateContracts: source => {
+		const rgx = /^(?!\s)\}/gm;
+		return source.split(rgx).slice(0,-1).map(contract => {
+			return contract+'\n}';
+		})
+	}
 };
 
 module.exports = PREPPER_MODULE;

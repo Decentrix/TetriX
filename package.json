@@ -17,7 +17,8 @@
   "author": "DecentriX",
   "license": "ISC",
   "bin": {
-    "tetrix": "./index.js"
+    "Tetrix": "./index.js",
+    "Tetrix -v": "./server/server.js"
   },
   "bugs": {
     "url": "https://github.com/Decentrix/TetriX/issues"
@@ -34,9 +35,11 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
+    "child_process": "^1.0.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "ganache-cli": "^6.1.0",
+    "node-cmd": "^3.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "remix-core": "0.0.8",

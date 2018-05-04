@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * @fileOverview
  * 1. PREP CONTRACT
@@ -19,31 +20,34 @@
  *    B. @function wM.assembleContent() Assemble actual object required to display contract codes in client // DONE
  *    C. @function wM.writeToFile() Write to file the assembled content
  */
-
 const path = require('path');
 const fs = require('fs');
-
-const contractPath = process.argv.slice(2);
-console.log(`contractPath = ${contractPath}`);
 const PREPPER = require('./src/modules/prepperModule'); // Preps the contract for optimization
 const OPTIMIZER = require('./src/modules/optimizerModule'); // Optimizes contract
 const CONTRACT = require('./src/modules/contractModule'); // Contract related methods
 const WRAPPER = require('./src/modules/wrapperModule'); // Readies contract data for client
+const childProcess = require('child_process');
 
-const source = PREPPER.extractCode(contractPath); // 1A
-const codeArr = WRAPPER.createCodeStrArr(source); // 2
-const origContent = WRAPPER.assembleContent(codeArr); // 
-// FIXME
-const optContent = OPTIMIZER.optimize(origContent); // returns optimized contract as a string
-const origContractObj = CONTRACT.compileContract(source);
-// console.log(origContractObj.assembly);
-CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
-
-// console.log(contractObj.bytecode);
-
-// CONTRACT.estimateGas(contractObj.bytecode);
-// console.log(optContent);
-
-
-// TODO: do stuff with the second contract copy
-WRAPPER.writeToFile(origContent, optContent);
+if(process.argv[2] === '-v') {
+	childProcess.fork('server/server.js');
+} else {
+	const contractPath = process.argv.slice(2);
+	const source = PREPPER.extractCode(contractPath); // 1A
+	const sourceArr = PREPPER.separateContracts(source);
+	const codeArr = WRAPPER.createCodeStrArr(source); // 2
+	const origContent = WRAPPER.assembleContent(codeArr); // 
+	// FIXME
+	const optContent = OPTIMIZER.optimize(source); // returns optimized contract as a string
+	const origContractObj = CONTRACT.compileContract(source);
+	// console.log(origContractObj.assembly);
+	CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
+	
+	// console.log(contractObj.bytecode);
+	
+	// CONTRACT.estimateGas(contractObj.bytecode);
+	// console.log(optContent);
+	
+	
+	// TODO: do stuff with the second contract copy
+	WRAPPER.writeToFile(origContent, optContent);
+}
