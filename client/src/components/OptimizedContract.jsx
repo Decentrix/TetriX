@@ -4,7 +4,7 @@ import OptCodeContainer from './OptCodeContainer.jsx';
 
 class OptimizedContract extends Component {
   render() {
-    const txCost = ['220000 ETH'];
+    const txCost = this.props.optCost;
 
     return (
       <div className="optContainer">
