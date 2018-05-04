@@ -1,6 +1,7 @@
-module.exports =  { 
-      origContract: ["pragma solidity ^0.4.21;","","contract myContract {","\t\tstruct Player {","\t\t\tstring name; ","\t\t\tbytes1 gender;","\t\t\tuint8 age;","\t\t}","\t\t// struct tester {","\t\t// \tstring name;","\t\t// \tbytes1 test;","\t\t// \tuint8 height;","\t\t// }","\taddress tester;","\tbool test;\t","\tbytes32 teststr;","  uint8 a;","  uint256 b;","\tmapping(address => Player) players;","  uint8 c;","  bytes32[] d;","\tbytes1 oneByte;","\tbytes8 eightByte;","","  constructor() public {","\t\ttest = true;","    a = 1;","    b = 2;","    c = 3;","    d.push(\"hello\");","\t\tteststr = \"hi\";","\t\toneByte = \"1\";","\t\teightByte = \"hey\";","\t\tPlayer storage sender = players[msg.sender];","\t\tsender.age = 10;","\t\tsender.gender = \"M\";","\t\tsender.name = \"joseph\";","  }","  ","  function updateContract() {","    a = 2;","  }","  ","}"], 
-      optContract: ["pragma solidity ^0.4.21;","","contract myContract {","\t\tstruct Player {","\t\t\tstring name; ","\t\t\tbytes1 gender;","\t\t\tuint8 age;","\t\t}","\t\t// struct tester {","\t\t// \tstring name;","\t\t// \tbytes1 test;","\t\t// \tuint8 height;","\t\t// }","\taddress tester;","\tbool test;\t","\tbytes32 teststr;","  uint8 a;","  uint256 b;","\tmapping(address => Player) players;","  uint8 c;","  bytes32[] d;","\tbytes1 oneByte;","\tbytes8 eightByte;","","  constructor() public {","\t\ttest = true;","    a = 1;","    b = 2;","    c = 3;","    d.push(\"hello\");","\t\tteststr = \"hi\";","\t\toneByte = \"1\";","\t\teightByte = \"hey\";","\t\tPlayer storage sender = players[msg.sender];","\t\tsender.age = 10;","\t\tsender.gender = \"M\";","\t\tsender.name = \"joseph\";","  }","  ","  function updateContract() {","    a = 2;","  }","  ","}"], 
-      origCost,
-      optCost,
-      difference: NaN,};
+module.exports =  {
+      origContract: ["@pragma solidity ^4.0.0;","","contract myContract {","  uint8 a;","  uint256 b;","  uint8 c;","  bytes32[] d;","","  function myContract() {","    a = 1;","    b = 2;","    c = 3;","    d = \"hello\";","  }","  ","  function updateContract() {","    a = 2;","  }","  ","}"], 
+      optContract: ["@pragma solidity ^4.0.0;","","contract myContract {","  uint256 b;","  uint8 c;","  bytes32[] d;", "  uint8 a;", "","  function myContract() {","    a = 1;","    b = 2;","    c = 3;","    d = \"hello\";","  }","  ","  function updateContract() {","    a = 2;","  }","  ","}"], 
+      origCost: [403500, ' gas'],
+      optCost: [320000, ' gas'],
+      difference: [83500, ' gas']
+};
