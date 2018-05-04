@@ -12,6 +12,9 @@ body {
   text-align: center;
 }
 
+.main {
+  display: flex;
+}
 /* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
 
 .contractContainer {
