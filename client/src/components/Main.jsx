@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import ContractContainer from './ContractContainer.jsx';
-import Assembly from './Assembly.jsx';
-import BytecodeOpcode from './BytecodeOpcode.jsx';
-import Interface from './Interface.jsx';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import ContractContainer from "./ContractContainer.jsx";
+import AssemblyContainer from "./AssemblyContainer.jsx";
 
-const Main = (props) => (
-  <div className="main" >
-    <Switch>
-        <Route exact path="/" exact component={ContractContainer}/>
-        <Route path="/assembly" exact component={Assembly}/>
-        <Route path="/bytecodeOpcode" exact component={BytecodeOpcode}/>
-        <Route path="/interface" exact component={Interface}/>
-    </Switch>
-  </div>
-)
+const Main = (props) => {
+  return (
+    <div className="main">
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={routeProps => (
+            <div>
+              <ContractContainer {...routeProps} data={props}/>
+            </div>
+          )}
+        />
+        <Route path="/assembly" render={routeProps => (
+					<AssemblyContainer {...routeProps} oldCode={props.oldCode} newCode={props.newCode} />
+					)} />
+      </Switch>
+    </div>
+  );
+};
 
 export default Main;

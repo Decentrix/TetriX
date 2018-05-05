@@ -8,16 +8,20 @@ import ContractContainer from './ContractContainer.jsx';
 import Assembly from './Assembly.jsx';
 
 
-const Navigation = () => (
-  <MuiThemeProvider>
-      <Drawer className="navigation"
-        containerStyle={{ 'position': 'absolute', 'top': '64px', 'width': '100px' }}>
-        <NavLink style={{ textDecoration: 'none' }} exact to="/"><MenuItem>C</MenuItem></NavLink>
-        <NavLink style={{ textDecoration: 'none' }} to="/assembly"><MenuItem>A</MenuItem></NavLink>
-        <NavLink style={{ textDecoration: 'none' }} to="/bytecodeOpcode"><MenuItem>B+O</MenuItem></NavLink>
-        <NavLink style={{ textDecoration: 'none' }} to="/interface"><MenuItem>I</MenuItem></NavLink>
-      </Drawer>
-  </MuiThemeProvider>
-)
+const Navigation = () => {
+	const removeUnderline = {textDecoration: 'none'}
+	return (
+		<MuiThemeProvider>
+			<Drawer className="navigation"
+			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '100px', 'border-top': 'solid 65px rgba(0,0,0,0.16)', 'z-index': '0'}}>
+				<NavLink exact to="/" style={removeUnderline}><MenuItem>C</MenuItem></NavLink>
+				<NavLink to="/assembly" style={removeUnderline}><MenuItem>A</MenuItem></NavLink>
+				<MenuItem style={removeUnderline}>B+O</MenuItem>
+				<MenuItem style={removeUnderline}>G</MenuItem>
+				<MenuItem style={removeUnderline}>I</MenuItem>
+			</Drawer>
+		</MuiThemeProvider>
+	)
+}
 
 export default Navigation;

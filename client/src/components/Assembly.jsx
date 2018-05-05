@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-const Assembly = () => {
+const Assembly = (props) => {
+	console.log(props);
   return (
     <div className="assembly">
-      Assembly
+			<ul className="name">
+				<b>{props.name}</b>
+			</ul>
     </div>
-  )
-}
-
+  );
+};
 
 export default Assembly;

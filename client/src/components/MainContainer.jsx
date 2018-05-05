@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
-import Navigation from './Navigation.jsx';
-import Main from './Main.jsx';
+import React, { Component } from "react";
+import Navigation from "./Navigation.jsx";
+import Main from "./Main.jsx";
 
-
-
-const MainContainer = () => {
+const MainContainer = (props) => {
   return (
-  <div className="mainContainer">
-    <Navigation />
-    <Main />
-  </div>
-  )
-}
-
-
-
-
+    <div className="mainContainer">
+      <Navigation />
+			<Main oldCode={props.oldCode} newCode ={props.newCode} difference={props.difference} />
+    </div>
+  );
+};
 
 export default MainContainer;

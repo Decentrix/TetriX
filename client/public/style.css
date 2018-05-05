@@ -64,6 +64,9 @@ body {
   width: 44%;
   margin: 10px;
   padding: 10px;
+	border: 1.5px solid lightcoral;
+	max-height: 720px;
+	overflow-y: scroll;
 }
 
 /* ---------------------------- CODE CONTAINER ---------------------------- */

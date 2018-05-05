@@ -1,21 +1,16 @@
-import React, { Component } from 'react';
-import { Card } from 'material-ui/Card';
-import OptCodeContainer from './OptCodeContainer.jsx';
+import React, { Component } from "react";
+import OptCodeContainer from "./OptCodeContainer.jsx";
 
-
-const OptimizedContract = (props) => {
-  const txCost = props.optCost;
-
+const OptimizedContract = props => {
   return (
     <div className="optContainer">
-      <Card>
-        <div className="cardName"><b>OPTIMIZED</b></div>
-        <OptCodeContainer optCode={props.optCode} />
-        <ul className="txCost"><b>Transaction Cost</b>: 300000 Gas</ul>
-      </Card>
+      <ul className="name">
+        <b>OPTIMIZED</b>
+      </ul>
+      <OptCodeContainer code={props.newCode.source} />
+			<ul className="txCost"><b>Transaction Cost</b>: {props.newCode.gasEst}</ul>
     </div>
-  )
-}
-
+  );
+};
 
 export default OptimizedContract;
