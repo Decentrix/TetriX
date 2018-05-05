@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import OgCodeContainer from './OgCodeContainer.jsx';
-import OptCodeContainer from './OptCodeContainer.jsx';
 
 class CenterPane extends Component {
   render() {

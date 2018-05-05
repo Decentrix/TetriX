@@ -4,8 +4,9 @@ import Assembly from './Assembly.jsx';
 const AssemblyContainer = (props) => {
 	console.log(props);
   return (
-    <div className="assembly">
+    <div className="assemblyContainer">
 			<Assembly code={props.oldCode.info.assembly} name={'ORIGINAL'} />
+			<div className="break"></div>
 			<Assembly code={props.newCode.info.assembly} name={'OPTIMIZED'} />
     </div>
   );

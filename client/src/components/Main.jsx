@@ -11,9 +11,7 @@ const Main = (props) => {
           exact
           path="/"
           render={routeProps => (
-            <div>
               <ContractContainer {...routeProps} data={props}/>
-            </div>
           )}
         />
         <Route path="/assembly" render={routeProps => (

@@ -13,7 +13,7 @@ const Navigation = () => {
 	return (
 		<MuiThemeProvider>
 			<Drawer className="navigation"
-			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '100px', 'border-top': 'solid 65px rgba(0,0,0,0.16)', 'z-index': '0'}}>
+			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '100px', 'borderTop': 'solid 65px rgba(0,0,0,0.16)', 'zIndex': '0'}}>
 				<NavLink exact to="/" style={removeUnderline}><MenuItem>C</MenuItem></NavLink>
 				<NavLink to="/assembly" style={removeUnderline}><MenuItem>A</MenuItem></NavLink>
 				<MenuItem style={removeUnderline}>B+O</MenuItem>
