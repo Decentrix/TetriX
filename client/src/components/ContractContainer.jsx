@@ -7,7 +7,7 @@ import OptimizedContract from './OptimizedContract.jsx';
 const ContractContainer = (props) => (
   <div className="contractContainer">
     <OriginalContract orgCode={props.orgCode} orgCost={props.orgCost}/>
-    {/* <CenterPane orgCode={props.originalCode} optCode={props.optimizedCode}/> */}
+    <CenterPane orgCode={props.originalCode} optCode={props.optimizedCode}/>
     <OptimizedContract optCode={props.optCode} optCost={props.optCost}/>
   </div>
 

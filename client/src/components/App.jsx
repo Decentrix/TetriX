@@ -25,6 +25,7 @@ class App extends Component {
             <MainContainer />
             {/* <Navigation orgCode={this.state.originalCode} optCode={this.state.optimizedCode} orgCost={this.state.orgCost} optCost={this.state.optCost} />
             <Main /> */}
+            {this.props.children}
         </div>
       </MuiThemeProvider>
     );
