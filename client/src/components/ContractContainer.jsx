@@ -5,7 +5,7 @@ import OptimizedContract from './OptimizedContract.jsx';
 
 
 const ContractContainer = (props) => {
-		console.log(props);
+		// console.log(props);
     return (
       <div className="contractContainer">
         <OriginalContract oldCode={props.data.oldCode}/>

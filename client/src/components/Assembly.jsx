@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 const Assembly = (props) => {
-	console.log(props);
   return (
     <div className="assembly">
 			<ul className="name">
