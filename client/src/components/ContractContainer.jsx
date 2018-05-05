@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import OriginalContract from './OriginalContract.jsx';
+import Contract from './Contract.jsx';
 import CenterPane from './CenterPane.jsx';
-import OptimizedContract from './OptimizedContract.jsx';
 
 
 const ContractContainer = (props) => {
-		console.log(props);
     return (
       <div className="contractContainer">
-        <OriginalContract oldCode={props.data.oldCode}/>
+        <Contract code={props.data.oldCode} name={"ORIGINAL"}/>
         {/* <CenterPane orgCode={this.props.originalCode} optCode={this.props.optimizedCode}/> */}
-        <OptimizedContract newCode={props.data.newCode}/>
+        <Contract code={props.data.newCode} name={"OPTIMIZED"}/>
       </div>
     );
 }
