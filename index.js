@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 /**
  * @fileOverview
+import OptimizedContract from "./client/src/components/OptimizedContract";
+
+
+import OgCodeContainer from "./client/src/components/OgCodeContainer";
+
+
  * 1. PREP CONTRACT
  *    A. @function pM.extractCode() Extract contract out of .sol file // DONE
  *    B. @function pM.parseContract() Parse through contract // TODO: EK
@@ -20,33 +26,36 @@
  *    B. @function wM.assembleContent() Assemble actual object required to display contract codes in client // DONE
  *    C. @function wM.writeToFile() Write to file the assembled content
  */
-if(process.argv[2] === '-v') {
-	const childProcess = require('child_process');
-	childProcess.fork('server/server.js');
-} else {
-	const path = require('path');
-	const fs = require('fs');
-	const PREPPER = require('./src/modules/prepperModule'); // Preps the contract for optimization
-	const OPTIMIZER = require('./src/modules/optimizerModule'); // Optimizes contract
-	const CONTRACT = require('./src/modules/contractModule'); // Contract related methods
-	const WRAPPER = require('./src/modules/wrapperModule'); // Readies contract data for client
+  const code = require('./src/code'); // Preps the contract for optimization
+  const opt = require('./src/opt'); // Optimizes contract
+  const contract = require('./src/contract'); // Contract related methods
+  const file = require('./src/file'); // Readies contract data for client
+  //---------\\
+  async function app() {
+		const contractPath = process.argv.slice(2); // STEP 1		
+		console.log(`CONTRACT PATH = ${contractPath}`);
+		const oldSource = code.extractCode(contractPath); // STEP 2
+		
+		const newSource = opt.optimize(oldSource); // STEP 3
+		
+    const oldStrArr = file.createCodeStrArr(oldSource); // STEP 4
+    const newStrArr = file.createCodeStrArr(newSource); // STEP 4
+		const contractName = contract.getContractName(oldSource);
+		const oldContractObj = await contract.compileContract(oldSource, contractName); // STEP 5A
+		// contract.massDeployer(oldContractObj);
+		oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface); // STEP 5B
+    const newContractObj = await contract.compileContract(newSource, contractName); // STEP 5A
+    newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface); // STEP 5B
 
-	const contractPath = process.argv.slice(2);
-	const source = PREPPER.extractCode(contractPath); // 1A
-	const codeArr = WRAPPER.createCodeStrArr(source); // 2
-	const origContent = WRAPPER.assembleContent(codeArr); // 
-	// FIXME
-	const optContent = OPTIMIZER.optimize(source); // returns optimized contract as a string
-	const origContractObj = CONTRACT.compileContract(source);
-	// console.log(origContractObj.assembly);
-	CONTRACT.startTestNetwork(origContractObj.bytecode, origContractObj.interface);
-		
-		// console.log(contractObj.bytecode);
-		
-		// CONTRACT.estimateGas(contractObj.bytecode);
-		// console.log(optContent);
-		
-		
-		// TODO: do stuff with the second contract copy
-	WRAPPER.writeToFile(origContent, optContent);
-}
+    file.writeToFile(Object.assign({contractName: contractName},oldContractObj), Object.assign({contractName:contractName},newContractObj), oldStrArr, newStrArr, oldGas, newGas); // STEP 6
+	};
+	app().then(() => {
+		if (process.argv[3] === '-v') {
+			const childProcess = require('child_process');
+			childProcess.fork('node_modules/webpack/bin/webpack.js');
+			childProcess.fork('server/server.js');
+		}
+	}).catch((err) => {
+		throw err;
+	})
+

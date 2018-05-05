@@ -9,11 +9,11 @@ import Assembly from './Assembly.jsx';
 
 
 const Navigation = () => {
-	const removeUnderline = {'text-decoration': 'none'}
+	const removeUnderline = {textDecoration: 'none'}
 	return (
 		<MuiThemeProvider>
 			<Drawer className="navigation"
-			containerStyle={{'position': 'absolute', 'top': '64px', 'width': '100px'}}>
+			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '100px', 'border-top': 'solid 65px rgba(0,0,0,0.16)', 'z-index': '0'}}>
 				<NavLink exact to="/" style={removeUnderline}><MenuItem>C</MenuItem></NavLink>
 				<NavLink to="/assembly" style={removeUnderline}><MenuItem>A</MenuItem></NavLink>
 				<MenuItem style={removeUnderline}>B+O</MenuItem>

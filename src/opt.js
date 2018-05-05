@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const OPTIMIZER_MODULE = {
+module.exports = {
   /**
    * @function name: optimize()
    * @param: contract to be optimized (type string)
@@ -30,10 +30,10 @@ const OPTIMIZER_MODULE = {
 			} else if (el.match(/^[\}]/g) !== null && inStruct === true) {
 				inStruct = false;
 				structs.push(
-					'\t',structName,'\n',
-					'\t\t',this.optimizerOthers(structOthers).join('\n\t\t'),'\n',
-					'\t\t',this.optimizerFull(structFull).join('\n\t\t'),'\n',
-					'\t','}',
+					'  ',structName,'\n',
+					'    ',this.optimizerOthers(structOthers).join('\n    '),'\n',
+					'    ',this.optimizerFull(structFull).join('\n    '),'\n',
+					'  ','}',
 					'\n'
 				);
 				structName = "";
@@ -73,7 +73,7 @@ const OPTIMIZER_MODULE = {
 		others = this.optimizerOthers(others);
 		full = this.optimizerFull(full);
 	
-		return [beforeConstruct.slice(0,3).join('\n')+'\n', structs.join('')+'\n',others.join('\n\t')+'\n\t',full.join('\n\t'),'\n\n'+afterConstruct].join('');
+		return [beforeConstruct.slice(0,3).join('\n')+'\n', structs.join('')+'\n','  '+others.join('\n  ')+'\n  ',full.join('\n  '),'\n\n'+'  '+afterConstruct].join('');
 	},
   /**
    * @function name: optimizerFull()
@@ -151,5 +151,3 @@ const OPTIMIZER_MODULE = {
 		return result;
 	}
 };
-
-module.exports = OPTIMIZER_MODULE;

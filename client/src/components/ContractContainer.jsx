@@ -4,16 +4,15 @@ import CenterPane from './CenterPane.jsx';
 import OptimizedContract from './OptimizedContract.jsx';
 
 
-class ContractContainer extends Component {
-  render() {
+const ContractContainer = (props) => {
+		console.log(props);
     return (
       <div className="contractContainer">
-        <OriginalContract orgCode={this.props.orgCode} orgCost={this.props.orgCost}/>
+        <OriginalContract oldCode={props.data.oldCode}/>
         {/* <CenterPane orgCode={this.props.originalCode} optCode={this.props.optimizedCode}/> */}
-        <OptimizedContract optCode={this.props.optCode} optCost={this.props.optCost}/>
+        <OptimizedContract newCode={props.data.newCode}/>
       </div>
     );
-  }
 }
 
 export default ContractContainer;

@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import OptCodeContainer from './OptCodeContainer.jsx';
+import React, { Component } from "react";
+import OptCodeContainer from "./OptCodeContainer.jsx";
 
-
-class OptimizedContract extends Component {
-  render() {
-    const txCost = this.props.optCost;
-
-    return (
-      <div className="optContainer">
-        <ul className="name"><b>OPTIMIZED</b></ul>
-        <OptCodeContainer optCode={this.props.optCode}/>
-        <ul className="txCost"><b>Transaction Cost</b>: {txCost}</ul>
-      </div>
-    )
-  }
-}
+const OptimizedContract = props => {
+  return (
+    <div className="optContainer">
+      <ul className="name">
+        <b>OPTIMIZED</b>
+      </ul>
+      <OptCodeContainer code={props.newCode.source} />
+			<ul className="txCost"><b>Transaction Cost</b>: {props.newCode.gasEst}</ul>
+    </div>
+  );
+};
 
 export default OptimizedContract;

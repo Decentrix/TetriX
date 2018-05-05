@@ -18,8 +18,7 @@
   "author": "DecentriX",
   "license": "ISC",
   "bin": {
-    "Tetrix": "./index.js",
-    "Tetrix -v": "./server/server.js"
+		"Tetrix": "./index.js"
   },
   "bugs": {
     "url": "https://github.com/Decentrix/TetriX/issues"

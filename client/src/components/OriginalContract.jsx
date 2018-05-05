@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import OgCodeContainer from './OgCodeContainer.jsx';
+import React, { Component } from "react";
+import OgCodeContainer from "./OgCodeContainer.jsx";
 
-
-
-class OriginalContract extends Component {
-  render() {
-    const txCost = this.props.orgCost;
-
-    return (
-      <div className="ogContainer">
-        <ul className="name"><b>ORIGINAL</b></ul>
-        <OgCodeContainer orgCode={this.props.orgCode}/>
-        <ul className="txCost"><b>Transaction Cost</b>: {txCost}</ul>
-      </div>
-    );
-  }
-}
+const OriginalContract = (props) => {
+  return (
+    <div className="ogContainer">
+      <ul className="name">
+        <b>ORIGINAL</b>
+      </ul>
+      <OgCodeContainer code={props.oldCode.source} />
+			<ul className="txCost"><b>Transaction Cost</b>: {props.oldCode.gasEst}</ul>
+    </div>
+  );
+};
 
 export default OriginalContract;

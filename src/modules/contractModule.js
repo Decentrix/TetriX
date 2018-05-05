@@ -11,6 +11,23 @@ let origContract;
 let newContract;
 
 const CONTRACT_MODULE = {
+    /**
+   * @function name: extractContractNames()
+   * @param: {String} Content of file argument
+   * @description: extracts all the contract names in the .sol file
+   * @return: array of contract names
+   *
+   */
+  extractContractNames: source => {
+    const rgx = /^contract\s(.*)\s\{/gm;
+    const contracts = source.match(rgx);
+    const nameRgx = /\s(.*)\b/g;
+    // list of contract names
+    return contracts.map(contract => {
+      return contract.match(nameRgx)[0].slice(1);
+    });
+    
+  },
   /**
    * @function name: compileContract()
    * @param: converted code in string
@@ -19,12 +36,6 @@ const CONTRACT_MODULE = {
    *
    */
   compileContract: source => {
-		const rgx = /^contract\s(.*)\s\{/gm;
-		const contracts = source.match(rgx);
-		const nameRgx = /\s(.*)\b/g;
-		const contractName = contracts.map((contract) => {
-			return contract.match(nameRgx)[0].slice(1);
-		})
     // const contractName = /^contract\s(.*)\s\{/gm.exec(source);
     // console.log(`contractName = ${contractName[1]}`);
     // second argument is the number of different contracts you are attempting to compile
@@ -66,7 +77,7 @@ const CONTRACT_MODULE = {
         resolve(contract);
       });
     }
-    
+
     function getContractAddress(contract) {
       return new Promise((resolve, reject) => {
         console.log(`Contract Address = ${contract.options.address}`);
