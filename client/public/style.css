@@ -30,7 +30,6 @@ body {
 .mainContainer {
 	display: flex;
 	width: 100%;
-	height: 100%;
 }
 
 .navigation {
@@ -46,8 +45,8 @@ body {
 
 .main {
 	display: flex;
-	width: 100%;
-	height: 100%;
+	width: calc(100vw - 100px);
+	height: calc(100vh - 64px);
 }
 
 /* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
@@ -55,7 +54,9 @@ body {
 .contractContainer {
 	width: 100%;
   display: flex;
-  justify-content: center;
+	justify-content: center;
+	height: calc(100vh - 94px);
+	padding:30px 25px 0 25px;
 }
 
 /* ---------------------------- APP COMPONENTS ---------------------------- */
@@ -69,10 +70,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-  margin: 20px 15px 0 15px;
-	padding: 10px 10px 0 10px;
+  margin: 0px 15px 0 15px;
+	padding: 0px 10px 0 10px;
 	/* border: 1.5px solid lightcyan; */
-	height:100%;
 	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
 }
 
@@ -138,9 +138,8 @@ body {
 .assemblyContainer {
 	display: flex;
 	width: 100%;
-	height: 100%;
-	margin: 10px 30px 0 30px;
-	padding: 10px 10px 0 10px;
+	height: calc(100vh - 84px);
+	padding: 20px 40px 0 40px;
 }
 
 .assembly {
@@ -159,7 +158,7 @@ body {
 	margin:20px 40px 0 40px;
 	padding: 0 0 0 50px;
 	overflow-y: scroll;
-	max-height: 738px;
+	height: 88%;
 	color: white;
 	background-color: rgb(13, 1, 54);
 }
