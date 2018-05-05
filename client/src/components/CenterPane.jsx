@@ -1,7 +1,4 @@
-import React, { Component } from 'react';
-import { Card } from 'material-ui/Card';
-import OgCodeContainer from './OgCodeContainer.jsx';
-import OptCodeContainer from './OptCodeContainer.jsx';
+import React, {Component} from 'react';
 
 
 const CenterPane = () => {

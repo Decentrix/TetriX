@@ -9,13 +9,11 @@ const Main = (props) => {
     <div className="main">
       <Switch>
         <Route exact path="/" render={routeProps => (
-          <div>
-            <ContractContainer {...routeProps} data={props}/>
-          </div>
+          <ContractContainer {...routeProps} data={props} />
         )} />
         <Route path="/assembly" render={routeProps => (
-					<AssemblyContainer {...routeProps} oldCode={props.oldCode} newCode={props.newCode} />
-				)} />
+          <AssemblyContainer {...routeProps} oldCode={props.oldCode} newCode={props.newCode} />
+        )} />
         <Route path="/bytecodeOpcode" render={routeProps => (
           <ByteOpContainer {...routeProps} oldCode={props.oldCode} newCode={props.newCode} />
         )} />

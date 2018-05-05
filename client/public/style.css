@@ -50,23 +50,18 @@ body {
 	height: 100%;
 }
 
-.assembly {
-	display: flex;
-	width: 100%;
-	height: 100%;
-
-}
 /* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
 
 .contractContainer {
-  width: 100%;
-  display: inline-flex;
+	width: 100%;
+  display: flex;
   justify-content: center;
 }
 
 /* ---------------------------- APP COMPONENTS ---------------------------- */
 
 .name {
+<<<<<<< HEAD
   text-align: center;
 }
 
@@ -77,16 +72,27 @@ body {
 	max-height: 720px;
   overflow-y: scroll;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+=======
+	text-align: center;
+	padding:0;
+>>>>>>> af798eedb46e35924f822ea8339e864456f768f4
 }
 
-.ogContainer ul {
-  padding-right: 10px;
+.codeContainer {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+  margin: 20px 15px 0 15px;
+	padding: 10px 10px 0 10px;
+	/* border: 1.5px solid lightcyan; */
+	height:100%;
+	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
 }
 
 .centerPiece {
-  width: 22%;
+	width: 22%;
   margin: 10px;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   text-align: center;
 }
 
@@ -102,22 +108,31 @@ body {
 /* ---------------------------- CODE CONTAINER ---------------------------- */
 
 .codeWrapper {
-  width: 100%;
+	width: 100%;
   font-family: 'Fira Mono', monospace;
-  align-content: center;
-  padding-top: 20px;
+	align-content: center;
+	padding: 0;
+	margin: 20px 0 0 0;
+	padding-right: 30px;
+	overflow-y: scroll;
+	height:700px;
 }
 
+.codeList {
+	padding: 0 20px 0 20px;
+	margin: 0;
+}
 .lineContainer {
-  width: 100%;
-  color: white;
-  display: inline-flex;
+	list-style-type: none;
+	width: 100%;
+	color: white;
+	display:flex;
   text-align: left;
-  background-color: rgba(16, 13, 20, 0.952);
+	background-color: rgba(16, 13, 20, 0.952);
 }
 
 .lineNum {
-  width: 50px;
+	width: 50px;
   height: 100%;
   color: rgb(100, 98, 98);
   padding-right: 5px;
@@ -129,7 +144,7 @@ body {
 }
 
 .code {
-  width: 100%;
+	width: 100%;
   text-align: left;
   padding: 5px 20px 0 20px;
 }
@@ -137,7 +152,50 @@ body {
 /* ---------------------------- TX COST ---------------------------- */
 
 .txCost {
-  text-align: right;
+	text-align: right;
+	margin: 0;
+}
+
+/* ---------------------------- Assembly Container ------------------------ */
+.assemblyContainer {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	margin: 10px 30px 0 30px;
+	padding: 10px 10px 0 10px;
+}
+
+.assembly {
+	display:flex;
+	flex-direction: column;
+  width: 100%;
+  height: 70%;
+  overflow-y: scroll;
+	margin-right: 10px;
+	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
+}
+
+.break{
+	width:40px;
+}
+
+.assemblyCode {
+	margin:20px 40px 0 40px;
+	padding: 0 0 0 50px;
+	overflow-y: scroll;
+	max-height: 738px;
+	color: white;
+	background-color: rgb(13, 1, 54);
+}
+
+.asList {
+	font-size: 13px;
+	padding: 0;
+	margin: 10px 10px 0 10px;
+}
+.asList li{
+	list-style-type: none;
+	margin-top: 5px;
 }
 
 /* ---------------------------- GASBOX ---------------------------- */
