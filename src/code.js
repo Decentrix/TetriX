@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   /**
-   * @function name: extractContractNames()
+   * @function: extractContractNames()
    * @param: converted code in string
    * @description: compiles the contract
    * @return: object that has the contract's assembly code, bytecode, gasEstimates, opcodes
@@ -18,25 +18,29 @@ module.exports = {
     }));
   },
   /**
-   * @function name: extractCode()
+   * @function: extractContent()
    * @param: third argument of process.argv
    * @description: extracts and convert code to string from .sol file
    * @return: converted code in string
    */
   // TODO: Test for cases where numArgs != 3
-  extractCode: params => {
+  extractContent: params => {
     const solRegex = /\.sol$/g;
     const contractPath = path.resolve(process.cwd(), params[0]);
     let source;
     if (contractPath.match(solRegex) && fs.existsSync(contractPath)) {
       source = fs.readFileSync(contractPath, 'utf8');
-      const stat = fs.statSync(contractPath);
     } else {
       throw new Error('Path does not exist');
     }
     return source;
   },
-
+  /**
+   * @function: separateContracts()
+   * @param: third argument of process.argv
+   * @description: extracts and convert code to string from .sol file
+   * @return: converted code in string
+   */
   separateContracts: source => {
     const rgx = /^(?!\s)\}/gm;
     return source

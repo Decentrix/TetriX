@@ -1,10 +1,16 @@
 const fs = require('fs');
 const path = require('path');
+const settings = require('./chalkSettings');
 
 module.exports = {
+  extractPath: argv => {
+    let contractPath = argv.slice(2);
+    console.log(`${settings('CONTRACT PATH =')} ${contractPath}`);
+    return contractPath;
+  },
   // TODO: Test for cases where code` has \n in string
   /**
-   * @function name: createCodeStrArr()
+   * @name: createCodeStrArr
    * @param: source - source contract code
    * @description: createCodeStrArr takes in the source contract code and returns
    * @return: array of string - source trimmed by newlines
