@@ -4,7 +4,7 @@ const Assembly = props => {
   // console.log(props.code);
   const asList = [];
   Object.keys(props.code).forEach(el => {
-    console.log(el);
+    // console.log(el);
     asList.push(<li>{el}</li>);
     if (el === "\.code") {
       props.code[el].forEach((line, i) => {
