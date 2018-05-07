@@ -47,7 +47,7 @@ import OgCodeContainer from "./client/src/components/OgCodeContainer";
     const newContractObj = await contract.compileContract(newSource, contractName); // STEP 5A
     newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface); // STEP 5B
 
-    file.writeToFile(Object.assign({contractName: contractName},oldContractObj), Object.assign({contractName:contractName},newContractObj), oldStrArr, newStrArr, oldGas, newGas); // STEP 6
+    file.writeToFile(contractName, oldContractObj, newContractObj, oldStrArr, newStrArr, oldGas, newGas); // STEP 6
 	};
 	app().then(() => {
 		if (process.argv[3] === '-v') {

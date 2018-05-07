@@ -8,7 +8,7 @@
     "server": "nodemon server/server.js",
     "build": "webpack && npm run server",
     "webpack": "webpack -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./client/test/test.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "author": "DecentriX",
   "license": "ISC",
   "bin": {
-		"Tetrix": "./index.js"
+    "Tetrix": "./index.js"
   },
   "bugs": {
     "url": "https://github.com/Decentrix/TetriX/issues"
@@ -37,9 +37,11 @@
     "body-parser": "^1.18.2",
     "child_process": "^1.0.2",
     "cors": "^2.8.4",
+    "enzyme": "^3.3.0",
     "express": "^4.16.3",
-    "material-ui": "^0.20.0",
     "ganache-cli": "^6.1.0",
+    "material-ui": "^0.20.0",
+    "mocha": "^5.1.1",
     "node-cmd": "^3.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

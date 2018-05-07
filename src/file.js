@@ -36,10 +36,11 @@ module.exports = {
    * @description: writes to file that contains the object assembled for client
    * @return: none
    */
-  writeToFile: (oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
+  writeToFile: (contractName, oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
     const filepath = path.resolve(__dirname, '../client/assets/sourceObject.js');
     const fileContent = 
     `module.exports =  { 
+			name: ${contractName},
       oldContract: {
         info: ${JSON.stringify(oldContract)}, 
         source: ${JSON.stringify(oldSource)},

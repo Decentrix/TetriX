@@ -5,9 +5,9 @@ import CenterPane from './CenterPane.jsx';
 
 const ContractContainer = (props) => {
     return (
-      <div className="contractContainer">
+      <div className="Container">
         <Contract code={props.data.oldCode} name={"ORIGINAL"}/>
-        {/* <CenterPane orgCode={this.props.originalCode} optCode={this.props.optimizedCode}/> */}
+        <div className="break"></div>{/* <CenterPane orgCode={this.props.originalCode} optCode={this.props.optimizedCode}/> */}
         <Contract code={props.data.newCode} name={"OPTIMIZED"}/>
       </div>
     );
