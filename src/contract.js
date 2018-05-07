@@ -40,6 +40,12 @@ const getAddress = contract => {
   });
 };
 
+  /**
+   * @function: getGasEstimate()
+   * @param: { String } contract
+   * @description: estimates gas using web3
+   * @return: { Integer } gas estimate
+   */
 const getGasEstimate = async contract => {
   let gas = await web3.eth.estimateGas({ data: bytecode });
   return web3.eth.estimateGas({ data: bytecode });
@@ -47,11 +53,10 @@ const getGasEstimate = async contract => {
 
 module.exports = {
   /**
-   * @function: compileContract()
-   * @param: converted code in string
-   * @description: compiles the contract
-   * @return: object that has the contract's assembly code, bytecode, gasEstimates, opcodes
-   *
+   * @function: getName()
+   * @param: { String } source
+   * @description: picks up contract's name
+   * @return: { String } returns contract's name
    */
   getName: source => {
     const rgx = /^contract\s(.*)\s\{/gm;
@@ -64,6 +69,14 @@ module.exports = {
     return contractName[0];
   },
 
+  /**
+   * @function: compileContract()
+   * @param: 
+   *   { String } source: converted code
+   *   { String } contractName: name of contract
+   * @description: compiles the contract
+   * @return: { Objects } contract's data
+   */
   compileContract: async (source, contractName) => {
     // console.log(`${chalk.blue('CONTRACT NAME =')} ${contractName}`);
     // second argument is the number of different contracts you are attempting to compile
@@ -77,8 +90,15 @@ module.exports = {
   },
 
   /**
-   * @function: startTestNetwork
-   * @param: bytecode, interface from contractData
+   * @function: startTestNetwork()
+   * @param:
+   *   { String } bytecode
+   *   { String } interface
+   * @description: starts test network in Ganache
+   *   1. getAccounts
+   *   2. testDeploy
+   *   3. getGasEstimate from test deployment
+   * @return: new Promise
    */
   startTestNetwork: (bytecode, interface) => {
     return new Promise((resolve, reject) => {

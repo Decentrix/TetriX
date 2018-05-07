@@ -5,8 +5,10 @@ module.exports = {
   /**
    * @function name: optimize()
    * @param: contract to be optimized (type string)
-   * @description: sent to optimizer
-   * @return: return optimized code as a string
+   * @description: parses through and organizes data types by bytes in its 
+	 *   corresponding array ( full, others, structName, structFull )
+	 *   which will later be optimized in optimizerFull and optimizerOthers
+   * @return: { String } optimized code
    */
   optimize: function(str) {
 		const arr = str.trim().split("\n");
@@ -77,9 +79,9 @@ module.exports = {
 	},
   /**
    * @function name: optimizerFull()
-   * @param: Accepts 32 bytes state variables (type array)
-   * @description:	Rearrange 32 bytes state variables in the optimzer
-   * @return:	Rearranged 32 bytes state variables array
+   * @param: { Array } accepts 32 bytes state variables
+   * @description: rearrange 32 bytes state variables in the optimzer
+   * @return:	{ Array } rearranged 32 bytes state variables array
    */
 	optimizerFull: arr => {
 		for (let i = 0; i < arr.length; i++) {

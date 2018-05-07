@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   /**
    * @function: extractContractNames()
-   * @param: converted code in string
+   * @param: { String } source: converted code in string
    * @description: compiles the contract
    * @return: object that has the contract's assembly code, bytecode, gasEstimates, opcodes
    *
@@ -17,13 +17,14 @@ module.exports = {
       return contract.match(nameRgx)[0].slice(1);
     }));
   },
+
   /**
    * @function: extractContent()
-   * @param: third argument of process.argv
-   * @description: extracts and convert code to string from .sol file
-   * @return: converted code in string
+   * @param: { String } params: filepath third argument of process.argv
+   * @description: extracts and converts code to string from .sol file
+   * @return: { String} converted code in string
    */
-  // TODO: Test for cases where numArgs != 3
+  // TODO: TEST FOR CASES WHERE NUMARG != 3
   extractContent: params => {
     const solRegex = /\.sol$/g;
     const contractPath = path.resolve(process.cwd(), params[0]);
@@ -35,6 +36,7 @@ module.exports = {
     }
     return source;
   },
+
   /**
    * @function: separateContracts()
    * @param: third argument of process.argv
