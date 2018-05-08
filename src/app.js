@@ -2,7 +2,7 @@ const childProcess = require('child_process');
 const chalk = require('chalk');
 const contract = require('./contract');
 const file = require('./file');
-const settings = require('./chalkSettings');
+const settings = require('./utils/chalkSettings');
 
 module.exports = {
   /**
