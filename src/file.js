@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const chalkSettings = require('./utils/chalkSettings');
-const BLUE = chalkSettings.blue;
+const { BLUE } = require('./utils/chalkSettings');
 
 module.exports = {
     /**

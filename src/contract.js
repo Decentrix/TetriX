@@ -3,8 +3,7 @@ const path = require('path');
 const solc = require('solc');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
-const chalkSettings = require('./utils/chalkSettings');
-const BLUE = chalkSettings.blue;
+const { BLUE } = require('./utils/chalkSettings');
 
 const provider = ganache.provider();
 const web3 = new Web3(provider);
@@ -37,12 +36,12 @@ const getAddress = contract => {
   });
 };
 
-  /**
-   * @function: getGasEstimate()
-   * @param: { String } contract
-   * @description: estimates gas using web3
-   * @return: { Integer } gas estimate
-   */
+/**
+ * @function: getGasEstimate()
+ * @param: { String } contract
+ * @description: estimates gas using web3
+ * @return: { Integer } gas estimate
+ */
 const getGasEstimate = async contract => {
   let gas = await web3.eth.estimateGas({ data: bytecode });
   return web3.eth.estimateGas({ data: bytecode });
@@ -68,7 +67,7 @@ module.exports = {
 
   /**
    * @function: compileContract()
-   * @param: 
+   * @param:
    *   { String } source: converted code
    *   { String } contractName: name of contract
    * @description: compiles the contract

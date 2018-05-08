@@ -1,5 +1,6 @@
 const chalk = require('chalk');
 
 module.exports = {
-  blue: chalk.blue,
+  BLUE: chalk.blue,
+  GREEN: chalk.green,
 };
