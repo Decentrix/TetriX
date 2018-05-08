@@ -1,13 +1,27 @@
 const fs = require('fs');
 const path = require('path');
+const settings = require('./chalkSettings')
 
 module.exports = {
-  // TODO: Test for cases where code` has \n in string
+    /**
+   * @function: extractPath()
+   * @param: { String } argument
+   * @description: container functionality for deploying and writing to file the contract
+   * @return: none
+   * @todo: TODO test for cases where number of arguments does not match requirement
+   */
+  extractPath: argv => {
+    let contractPath = argv.slice(2);
+    console.log(`${settings('CONTRACT PATH =')} ${contractPath}`);
+    return contractPath;
+  },
+
   /**
-   * @function name: createCodeStrArr()
-   * @param: source - source contract code
-   * @description: createCodeStrArr takes in the source contract code and returns
-   * @return: array of string - source trimmed by newlines
+   * @name: createCodeStrArr
+   * @param: { String } - content of contract
+   * @description: cuts contract by newline
+   * @return: { String } source trimmed by newlines
+   * @todo: test for cases where code has \n in string
    */
   createCodeStrArr: source => {
     return source.trim().split('\n');
@@ -31,15 +45,22 @@ module.exports = {
   // },
 
   /**
-   * @function name: writeToFile()
-   * @param: fileContent
-   * @description: writes to file that contains the object assembled for client
+   * @function: writeToFile()
+   * @param:
+   *   { Object } oldContract: data for original contract
+   *   { Object } newContract: data for optimized contract
+   *   { String } oldSource: content for original contract
+   *   { String } oldContract: content for optimized contract
+   *   { Integer } oldGas: gas cost for original contract
+   *   { Integer } newGas: gas cost for optimized contract
+   * @description: writes to file that holds data object assembled for visualization
    * @return: none
    */
-  writeToFile: (oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
+  writeToFile: (contractName, oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
     const filepath = path.resolve(__dirname, '../client/assets/sourceObject.js');
     const fileContent = 
     `module.exports =  { 
+      name: ${JSON.stringify(contractName)},
       oldContract: {
         info: ${JSON.stringify(oldContract)}, 
         source: ${JSON.stringify(oldSource)},

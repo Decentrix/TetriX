@@ -1,45 +1,47 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   //needed for webpack 4+
-  mode: 'development',
+  mode: "development",
   //where webpack is pulling files from
-  entry: './client/src/index.js',
+  entry: "./client/src/index.js",
   //where webpack is outputing normal build
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: './bundle.js',
+    path: path.resolve(__dirname, "build"),
+    filename: "./bundle.js"
   },
   node: {
     fs: "empty"
- },
+	},
   //loaders and modules that webpack will need to read your specific files
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader",
         query: {
-          presets: ['es2015', 'react']
+          presets: ["es2015", "react"]
         }
       },
       {
         test: /\.css$/,
-        use: [{
-            loader: 'style-loader'
+        use: [
+          {
+            loader: "style-loader"
           },
           {
-            loader: 'css-loader'
+            loader: "css-loader"
           }
         ]
       }
     ]
   },
   devServer: {
-    publicPath: '/build/',
-    contentBase: path.join(__dirname, 'client/public'),
+    publicPath: "/build/",
+    contentBase: path.join(__dirname, "client/public"),
     hot: true,
     port: 8080
   }
-}
+};
 console.log(__dirname);
