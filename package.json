@@ -8,7 +8,7 @@
     "server": "nodemon server/server.js",
     "build": "webpack && npm run server",
     "webpack": "webpack -w",
-    "test": "node ./client/test/test.js"
+    "test": "mocha --ui bdd --require test/index.js --compilers js:babel-register test/client/test.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,12 @@
   },
   "homepage": "https://github.com/Decentrix/TetriX#readme",
   "devDependencies": {
-    "nodemon": "^1.17.3",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "css-loader": "^0.28.11",
+    "mocha": "^5.1.1",
+    "nodemon": "^1.17.3",
     "style-loader": "^0.21.0"
   },
   "dependencies": {
@@ -35,13 +39,13 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
+    "chalk": "^2.4.1",
     "child_process": "^1.0.2",
     "cors": "^2.8.4",
     "enzyme": "^3.3.0",
     "express": "^4.16.3",
     "ganache-cli": "^6.1.0",
     "material-ui": "^0.20.0",
-    "mocha": "^5.1.1",
     "node-cmd": "^3.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

@@ -13,11 +13,6 @@ module.exports = {
   node: {
     fs: "empty"
 	},
-	externals: {
-    'cheerio': 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true,
-  },
   //loaders and modules that webpack will need to read your specific files
   module: {
     rules: [
