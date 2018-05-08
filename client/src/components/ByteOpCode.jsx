@@ -1,26 +1,11 @@
 import React from 'react';
 
 const ByteOpCode = (props) => {
-  // console.log('THIS IS OLD OPCODE---------->', props.oldOpcode);
   return (
-  <div className="outerContainer">
-    <div className="codeContainer">
-      <div className="innerContainer">
-        <ul className="test">
-          <b>{props.nameOg}</b>
-          <div className="code"><b>BYTECODE: </b>{props.oldByteCode}</div>
-        </ul>
-      </div>
+    <div className="innerContainer">
+      <div className="byteCode"><b>BYTECODE: </b>{props.info.bytecode}</div>
+      <div className="opCode"><b>OPCODE:</b>{props.info.opcodes}</div>
     </div>
-    <div className="codeContainer">
-      <div className="innerContainer">
-        <ul className="test">
-          <b>{props.nameOp}</b>
-          <div className="code"><b>BYTECODE: </b>{props.oldByteCode}</div>
-        </ul>
-      </div>
-    </div>
-  </div>
   )
 }
 

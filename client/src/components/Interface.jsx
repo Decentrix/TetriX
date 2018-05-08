@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Interface = () => {
+const Interface = (props) => {
   return (
-    <div>
-      Interface
+    <div className="interface">
+      {props.abi}
     </div>
   )
 }

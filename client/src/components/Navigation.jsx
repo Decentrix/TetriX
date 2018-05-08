@@ -4,21 +4,19 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButtom from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ContractContainer from './ContractContainer.jsx';
-import Assembly from './Assembly.jsx';
 
 
-const Navigation = () => {
+const Navigation = (props) => {
 	const removeUnderline = {textDecoration: 'none'}
 	return (
 		<MuiThemeProvider>
 			<Drawer className="navigation"
-			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '100px', 'borderTop': 'solid 65px rgba(0,0,0,0.16)', 'zIndex': '0'}}>
+			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '150px', 'borderTop': 'solid 65px rgba(0,0,0,0.16)', 'zIndex': '0'}}>
 				<NavLink exact to="/" style={removeUnderline}><MenuItem>C</MenuItem></NavLink>
 				<NavLink to="/assembly" style={removeUnderline}><MenuItem>A</MenuItem></NavLink>
 				<NavLink to="/bytecodeOpcode" style={removeUnderline}><MenuItem>B+O</MenuItem></NavLink>
-				<MenuItem style={removeUnderline}>G</MenuItem>
-				<MenuItem style={removeUnderline}>I</MenuItem>
+				<NavLink to="/interface" style={removeUnderline}><MenuItem>I</MenuItem></NavLink>
+				<MenuItem style={{wordWrap: 'break-word', whiteSpace: 'normal', bottom: '0px'}}><b>GAS DIFFERENCE</b>: {props.difference}</MenuItem>
 			</Drawer>
 		</MuiThemeProvider>
 	)

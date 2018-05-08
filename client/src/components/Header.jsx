@@ -8,7 +8,7 @@ class Header extends Component {
         <AppBar
         title="TetriX"
         showMenuIconButton={false} 
-				iconElementRight={<span className="contractName">{this.props.contractName.info.contractName}</span>}
+				iconElementRight={<span className="contractName">{this.props.contractName}</span>}
 				/>
       </div>
     );
