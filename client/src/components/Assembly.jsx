@@ -21,11 +21,9 @@ const Assembly = props => {
     }
   });
   return (
-    <div className="assembly">
 			<div className="assemblyCode">
       	<ul className="asList">{asList}</ul>
 			</div>
-    </div>
   );
 };
 

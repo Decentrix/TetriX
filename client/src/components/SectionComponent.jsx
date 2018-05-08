@@ -2,7 +2,6 @@ import React from 'react';
 import Contract from './Contract.jsx';
 import Assembly from './Assembly.jsx';
 import ByteOpCode from './ByteOpCode.jsx';
-import Interface from './Interface.jsx';
 
 
 const SectionComponent = (props) => {
@@ -17,11 +16,7 @@ const SectionComponent = (props) => {
   }
 
   if(props.type === 'byteOpCode') {
-    types.push(<ByteOpCode info={props.contract.info} />);
-  }
-
-  if(props.type === 'interface') {
-    types.push(<Interface abi={props.contract.info.interface}/>);
+    types.push(<ByteOpCode info={props.contract.info}/>);
   }
 
   return (
