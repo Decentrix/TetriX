@@ -1,6 +1,13 @@
 {
   "name": "tetrix",
-  "version": "1.0.0",
+	"version": "1.0.0",
+	"engines": {
+		"node": "10.0.0",
+		"react": "^16.3.2",
+		"solc": "^0.4.23",
+		"web3": "^1.0.0-beta.34",
+    "webpack": "^4.6.0"
+	},
   "description": "- client - server",
   "main": "index.js",
   "scripts": {
@@ -15,7 +22,7 @@
     "url": "git+https://github.com/Decentrix/TetriX.git"
   },
   "keywords": [],
-  "author": "DecentriX",
+  "author": "Joseph Wu, Pauline Chang, Esther Kim",
   "license": "ISC",
   "bin": {
     "Tetrix": "./index.js"
@@ -46,6 +53,7 @@
     "express": "^4.16.3",
     "ganache-cli": "^6.1.0",
     "material-ui": "^0.20.0",
+    "node": "^10.0.0",
     "node-cmd": "^3.0.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

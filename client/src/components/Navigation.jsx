@@ -13,7 +13,7 @@ const Navigation = (props) => {
 			<Drawer className="navigation"
 			containerStyle={{'position': 'absolute', 'bottom': '0px', 'width': '150px', 'borderTop': 'solid 65px rgba(0,0,0,0.16)', 'zIndex': '0', 'height': '100vh'}}>
 				<NavLink exact to="/" style={removeUnderline}><MenuItem>Contract</MenuItem></NavLink>
-				<NavLink to="/assembly" style={removeUnderline}><MenuItem>Aseembly</MenuItem></NavLink>
+				<NavLink to="/assembly" style={removeUnderline}><MenuItem>Assembly</MenuItem></NavLink>
 				<NavLink to="/bytecodeOpcode" style={removeUnderline}><MenuItem>Other Details</MenuItem></NavLink>
 				<MenuItem style={{whiteSpace: 'pre-wrap', bottom: '0px', position: 'absolute', fontSize: '13px'}}><b>GAS DIFFERENCE</b>: {props.difference}</MenuItem>
 			</Drawer>
