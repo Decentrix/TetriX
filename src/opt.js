@@ -16,6 +16,7 @@ module.exports = {
 			.trim()
 			.split("\n");	//Content before Constructor
 		const afterConstruct = str.substr(str.indexOf('constructor'));	//Content after Constructor
+		const beforeVariables = this.getContractHead(beforeConstruct);
 		const structs = []; //Storage for all declared structs 
 		let full = [];	//Storage for all 32bytes variables
 		let others = [];	//Storage for all non-32bytes variables
@@ -60,8 +61,27 @@ module.exports = {
 		others = this.optimizerOthers(others);	//Run optimizers on the global non-32bytes variables
 		full = this.optimizerFull(full);	//run optimizers on the global 32-bytes variables
 	
-		return [beforeConstruct.slice(0,3).join('\n')+'\n', structs.join('')+'\n','  '+others.join('\n  ')+'\n  ',full.join('\n  '),'\n\n'+'  '+afterConstruct].join('');
+		return [beforeVariables.join('\n')+'\n', structs.join('')+'\n','  '+others.join('\n  ')+'\n  ',full.join('\n  '),'\n\n'+'  '+afterConstruct].join('');
 	},
+
+	/**
+   * @function name: getContractHead()
+   * @param: { Array } accepts beforeContruct Array
+   * @description: Parse and extract the content before any variables are declared
+   * @return:	{ Array } extracted Array
+   */
+	getContractHead: arr => {
+		const newArr = [];
+		for (let i = 0; i < arr.length; i++) {
+			if(arr[i].match(/^(contract).*(\{?)/g)!==null) {
+				newArr.push(arr[i]);
+				break;
+			}
+			newArr.push(arr[i]);
+		}
+		return newArr;
+	},
+
   /**
    * @function name: optimizerFull()
    * @param: { Array } accepts 32 bytes state variables
