@@ -20,7 +20,7 @@ module.exports = {
    * @name: createCodeStrArr
    * @param: { String } - content of contract
    * @description: cuts contract by newline
-   * @return: { String } source trimmed by newlines
+   * @return: { Array of String } source trimmed by newlines
    * @todo: test for cases where code has \n in string
    */
   createCodeStrArr: source => {
@@ -47,6 +47,7 @@ module.exports = {
   /**
    * @function: writeToFile()
    * @param:
+   *   { String } contractName: name of contract
    *   { Object } oldContract: data for original contract
    *   { Object } newContract: data for optimized contract
    *   { String } oldSource: content for original contract
@@ -56,10 +57,11 @@ module.exports = {
    * @description: writes to file that holds data object assembled for visualization
    * @return: none
    */
-  writeToFile: (oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
+  writeToFile: (contractName, oldContract, newContract, oldSource, newSource, oldGas, newGas) => {
     const filepath = path.resolve(__dirname, '../client/assets/sourceObject.js');
     const fileContent = 
     `module.exports =  { 
+      name: ${JSON.stringify(contractName)},
       oldContract: {
         info: ${JSON.stringify(oldContract)}, 
         source: ${JSON.stringify(oldSource)},
