@@ -7,7 +7,7 @@ const settings = require('./chalkSettings');
 module.exports = {
   /**
    * @function: deploy()
-   * @param: 
+   * @param:
    *   { String } contractName: name of contract
    *   { String } oldSource: content of original contract
    *   { String } newSource: content of optimized contract
@@ -36,7 +36,7 @@ module.exports = {
       newGas
     );
   },
-  
+
   /**
    * @function: runVisualization()
    * @param: none
