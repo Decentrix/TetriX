@@ -1,8 +1,7 @@
 const childProcess = require('child_process');
-const chalk = require('chalk');
 const contract = require('./contract');
 const file = require('./file');
-const settings = require('./chalkSettings');
+const { BLUE, GREEN, RED } = require('./utils/chalkSettings');
 
 module.exports = {
   /**
@@ -15,13 +14,15 @@ module.exports = {
    * @return: none
    */
   deploy: async (contractName, oldSource, newSource) => {
+    console.log(`${BLUE('DEPLOYING ORIGINAL CONTRACT')}`);
     const oldContractObj = await contract.compileContract(oldSource, contractName);
     oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface);
+    console.log(`${BLUE('DEPLOYING OPTIMIZED CONTRACT')}`);
     const newContractObj = await contract.compileContract(newSource, contractName);
     newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface);
-    console.log(`${settings('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
-    console.log(`${settings('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
-    console.log(`${settings('DIFFERENCE =')} ${chalk.green(oldGas - newGas)}`);
+    console.log(`${BLUE('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
+    console.log(`${BLUE('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
+    console.log(`${BLUE('DIFFERENCE =')} ${GREEN(oldGas - newGas)}`);
 		const oldStrArr = file.createCodeStrArr(oldSource);
 		const newStrArr = file.createCodeStrArr(newSource);
 		
