@@ -60,7 +60,7 @@ module.exports = {
     const filepath = path.resolve(__dirname, '../client/assets/sourceObject.js');
     const fileContent = 
     `module.exports =  { 
-			name: ${contractName},
+      name: ${JSON.stringify(contractName)},
       oldContract: {
         info: ${JSON.stringify(oldContract)}, 
         source: ${JSON.stringify(oldSource)},

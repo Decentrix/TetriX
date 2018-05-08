@@ -5,8 +5,8 @@ import Main from "./Main.jsx";
 const MainContainer = (props) => {
   return (
     <div className="mainContainer">
-      <Navigation />
-			<Main oldCode={props.oldCode} newCode ={props.newCode} difference={props.difference} />
+      <Navigation difference={props.source.difference} />
+			<Main source={props.source} />
     </div>
   );
 };

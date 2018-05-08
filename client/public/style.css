@@ -3,28 +3,33 @@ body {
   margin: 0;
 }
 
+.app {
+  height: 100%;
+  width: 100%;
+}
 /* ---------------------------- STATIC COMPONENTS ---------------------------- */
+
 .header {
-	background-color: rgb(135, 196, 231) !important;
-	display: flex;
-	flex-direction: column;
+  background-color: rgb(135, 196, 231) !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .contractName {
-	position: absolute;
-	right: 20px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin-top: 0px;
-	padding-top: 0px;
-	letter-spacing: 1px;
-	font-size: 24px;
-	font-weight: 400;
-	color: rgb(255, 255, 255);
-	height: 64px;
-	line-height: 45px;
-	flex: 1 1 0%;
+  position: absolute;
+  right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0px;
+  padding-top: 0px;
+  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  height: 64px;
+  line-height: 45px;
+  flex: 1 1 0%;
 }
 
 .mainContainer {
@@ -33,95 +38,106 @@ body {
 }
 
 .navigation {
-	text-align: center;
-	width:100px;
-	padding-right: 10px;
-}
-
-.navBtn {
-	text-decoration: none;
-	font-weight: 800;
+  text-align: center;
+  width: 100px;
+  padding-right: 10px;
 }
 
 .main {
 	display: flex;
 	width: calc(100vw - 100px);
-	height: calc(100vh - 64px);
+  height: calc(100vh - 64px);
+  /* justify-content: center; */
 }
 
 /* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
 
-.Container {
-	width: 100%;
+/* .contractContainer {
+  width: 100%;
   display: flex;
 	height: calc(100vh - 94px);
-	padding: 20px 40px 0 40px;
+	padding:30px 25px 0 55px;
+} */
+
+.pageContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.secHeader {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.sectionContainer {
+  padding: 15px;
+  width: 100%;
+}
+
+.secComponent {
+  width: 100%;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* ---------------------------- APP COMPONENTS ---------------------------- */
 
-.name {
-	text-align: center;
-	padding:0;
-}
-
 .codeContainer {
 	display: flex;
-	flex-direction: column;
-	width: 100%;
-  margin-right: 10px;
-	padding: 0px 10px 0 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  /* margin: 0px 15px 0 15px; */
+	/* padding: 0px 10px 0 10px; */
 	/* border: 1.5px solid lightcyan; */
-	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
-}
-
-.centerPiece {
-	width: 22%;
-  margin: 10px;
-  /* border: 1px solid grey; */
-  text-align: center;
+	/* box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15); */
 }
 
 
 /* ---------------------------- CODE CONTAINER ---------------------------- */
 
 .codeWrapper {
-	width: 100%;
+  width: 100%;
   font-family: 'Fira Mono', monospace;
-	align-content: center;
-	padding: 0;
-	margin: 20px 0 0 0;
-	padding-right: 30px;
-	overflow-y: scroll;
-	height:700px;
+  align-content: center;
+  padding: 0;
+  margin: 20px 0 0 0;
+  /* padding-right: 30px; */
+  overflow-y: scroll;
+  height: 70vh;
+  box-sizing: border-box;
 }
 
 .codeList {
-	padding: 0 20px 0 20px;
-	margin: 0;
+  padding: 0 20px 0 20px;
+  margin: 0;
 }
+
 .lineContainer {
-	list-style-type: none;
-	width: 100%;
-	color: white;
-	display:flex;
+  list-style-type: none;
+  width: 100%;
+  color: white;
+  display: flex;
   text-align: left;
-	background-color: rgba(16, 13, 20, 0.952);
+  background-color: rgb(13, 1, 54);
 }
 
 .lineNum {
-	width: 50px;
+  width: 50px;
   height: 100%;
   color: rgb(100, 98, 98);
   padding-right: 5px;
   padding-top: 5px;
   text-align: right;
   border-right: 1px solid white;
-  background-color: darkgray;
+  /* background-color: darkgray; */
+  background-color: lightgrey;
 }
 
 .code {
-	width: 100%;
+  width: 100%;
   text-align: left;
   padding: 5px 20px 0 20px;
 }
@@ -129,22 +145,29 @@ body {
 /* ---------------------------- TX COST ---------------------------- */
 
 .txCost {
-	text-align: right;
-	margin: 0;
+  text-align: right;
+  margin: 0;
+  padding: 10px;
 }
 
 /* ---------------------------- Assembly Container ------------------------ */
 
-.assembly {
-	display:flex;
-	flex-direction: column;
+/* .assemblyContainer {
+	display: flex;
 	width: 100%;
-	margin-right: 10px;
-	box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.15);
-}
+	height: calc(100vh - 84px);
+	padding: 20px 40px 0 40px;
+} */
 
-.break{
-	width:40px;
+.assembly {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 70%; */
+  height: 70vh;
+  overflow-y: scroll;
+  margin-right: 10px;
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.15);
 }
 
 .assemblyCode {
@@ -157,27 +180,30 @@ body {
 }
 
 .asList {
-	font-size: 13px;
-	padding: 0;
-	margin: 10px 10px 0 10px;
-}
-.asList li{
-	list-style-type: none;
-	margin-top: 5px;
+  font-size: 13px;
+  padding: 0;
+  margin: 10px 10px 0 10px;
 }
 
-/* ---------------------------- GASBOX ---------------------------- */
-
-.gasBox {
-  width: 100%;
-  margin-top: 5%;
-  text-align: center;
-  border: 1.5px solid lightsalmon;
+.asList li {
+  list-style-type: none;
+  margin-top: 5px;
 }
 
-/* ---------------------------- CENTERPANE ---------------------------- */
+.innerContainer {
+  max-width: 100%;
+}
 
-#changeOne {
-  margin-top: 55%;
-  margin-bottom: 16%;
+.byteCode {
+  overflow-y: scroll;
+}
+
+.opCode {
+  overflow-y: scroll;
+}
+
+.interface {
+  display:flex;
+  justify-content: center;
+  padding: 10px;
 }

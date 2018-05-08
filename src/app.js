@@ -22,13 +22,14 @@ module.exports = {
     console.log(`${settings('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
     console.log(`${settings('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
     console.log(`${settings('DIFFERENCE =')} ${chalk.green(oldGas - newGas)}`);
-
-    oldStrArr = file.createCodeStrArr(oldSource);
-    newStrArr = file.createCodeStrArr(newSource);
+		const oldStrArr = file.createCodeStrArr(oldSource);
+		const newStrArr = file.createCodeStrArr(newSource);
+		
 
     file.writeToFile(
-      Object.assign({ contractName }, oldContractObj),
-      Object.assign({ contractName }, newContractObj),
+			contractName,
+      oldContractObj,
+      newContractObj,
       oldStrArr,
       newStrArr,
       oldGas,
