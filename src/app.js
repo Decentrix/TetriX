@@ -1,7 +1,7 @@
 const childProcess = require('child_process');
 const contract = require('./contract');
 const file = require('./file');
-const { BLUE, GREEN } = require('./utils/chalkSettings');
+const { BLUE, GREEN, RED } = require('./utils/chalkSettings');
 
 module.exports = {
   /**
@@ -14,8 +14,10 @@ module.exports = {
    * @return: none
    */
   deploy: async (contractName, oldSource, newSource) => {
+    console.log(`${BLUE('DEPLOYING ORIGINAL CONTRACT')}`);
     const oldContractObj = await contract.compileContract(oldSource, contractName);
     oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface);
+    console.log(`${BLUE('DEPLOYING OPTIMIZED CONTRACT')}`);
     const newContractObj = await contract.compileContract(newSource, contractName);
     newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface);
     console.log(`${BLUE('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);

@@ -1,4 +1,7 @@
 # TetriX
-## Folder Structure
-- client
-- server
+## Overflow
+
+## Installation
+
+## Usage
+
