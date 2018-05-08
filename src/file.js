@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const settings = require('./chalkSettings')
+const { BLUE } = require('./utils/chalkSettings');
 
 module.exports = {
     /**
@@ -12,7 +12,7 @@ module.exports = {
    */
   extractPath: argv => {
     let contractPath = argv.slice(2);
-    console.log(`${settings('CONTRACT PATH =')} ${contractPath}`);
+    console.log(`${BLUE('CONTRACT PATH =')} ${contractPath}`);
     return contractPath;
   },
 
@@ -26,23 +26,6 @@ module.exports = {
   createCodeStrArr: source => {
     return source.trim().split('\n');
   },
-
-  // /**
-  //  * @function name: assembleContent()
-  //  * @param: origContent in string, optContent in string,
-  //  *   origCost in int, optCost in int
-  //  * @description: assembles object required to display contract codes
-  //  *   in client
-  //  * @return: content for client to use in string
-  //  */
-  // assembleFile: (oldContract, newContract, oldGas, newGas) => {
-  //   return `module.exports =  { 
-  //     oldContract: ${JSON.stringify(oldContract)}, 
-  //     newContract: ${JSON.stringify(newContract)}, 
-  //     oldGas,
-  //     newGas,
-  //     difference: ${oldGas - newGas},};`;
-  // },
 
   /**
    * @function: writeToFile()

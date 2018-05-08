@@ -3,14 +3,10 @@ const path = require('path');
 const solc = require('solc');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
-const chalk = require('chalk');
+const { BLUE } = require('./utils/chalkSettings');
 
 const provider = ganache.provider();
 const web3 = new Web3(provider);
-// let accounts;
-// let myContract;
-// let origContract;
-// let newContract;
 
 const getAccounts = () => {
   return new Promise((resolve, reject) => {
@@ -35,17 +31,17 @@ const testDeploy = accounts => {
 
 const getAddress = contract => {
   return new Promise((resolve, reject) => {
-    console.log(`${chalk.blue('CONTRACT ADDRESS =')} ${contract.options.address}`);
+    console.log(`${BLUE('CONTRACT ADDRESS =')} ${contract.options.address}`);
     resolve(contract);
   });
 };
 
-  /**
-   * @function: getGasEstimate()
-   * @param: { String } contract
-   * @description: estimates gas using web3
-   * @return: { Integer } gas estimate
-   */
+/**
+ * @function: getGasEstimate()
+ * @param: { String } contract
+ * @description: estimates gas using web3
+ * @return: { Integer } gas estimate
+ */
 const getGasEstimate = async contract => {
   let gas = await web3.eth.estimateGas({ data: bytecode });
   return web3.eth.estimateGas({ data: bytecode });
@@ -65,22 +61,21 @@ module.exports = {
     const contractName = contracts.map(contract => {
       return contract.match(nameRgx)[0].slice(1);
     });
-    console.log(`${chalk.blue('CONTRACT NAME =')} ${contractName[0]}`);
+    console.log(`${BLUE('CONTRACT NAME =')} ${contractName[0]}`);
     return contractName[0];
   },
 
   /**
    * @function: compileContract()
-   * @param: 
+   * @param:
    *   { String } source: converted code
    *   { String } contractName: name of contract
    * @description: compiles the contract
    * @return: { Objects } contract's data
    */
   compileContract: async (source, contractName) => {
-    // console.log(`${chalk.blue('CONTRACT NAME =')} ${contractName}`);
-    // second argument is the number of different contracts you are attempting to compile
     try {
+      // second argument is the number of different contracts you are attempting to compile
       const contractData = solc.compile(source, 1).contracts[`:${contractName}`];
       // console.log(source);
       return ({ source, assembly, bytecode, opcodes, interface } = contractData);
