@@ -1,0 +1,212 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", sans-serif;
+  margin: 0;
+}
+
+/* ---------------------------- STATIC COMPONENTS ---------------------------- */
+
+.header {
+  background-color: rgb(135, 196, 231) !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo{
+	height: 64px;
+	width: 64px;
+	padding: 0;
+}
+
+.contractName {
+  position: absolute;
+  right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0px;
+  padding-top: 0px;
+  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  height: 64px;
+  line-height: 45px;
+  flex: 1 1 0%;
+}
+
+.mainContainer {
+  display: flex;
+  width: 100%;
+}
+
+.navigation {
+  text-align: center;
+  width: 150px;
+}
+
+.main {
+  display: flex;
+  width: calc(100vw - 150px);
+  height: calc(100vh - 64px);
+  /* justify-content: center; */
+}
+
+/* ---------------------------- CONTRACT COMPONENTS ---------------------------- */
+
+/* .contractContainer {
+  width: 100%;
+  display: flex;
+	height: calc(100vh - 94px);
+	padding:30px 25px 0 55px;
+} */
+
+.pageContainer {
+  /* width: 100%; */
+  width: calc(100vw - 150px);
+  display: flex;
+  justify-content: space-evenly;
+  height: calc(100vh - 94px);
+}
+
+.secHeader {
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.sectionContainer {
+  padding: 15px 0;
+}
+
+.secComponent {
+  width: 40vw;
+  height: calc(100vh - 183px);
+  box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.15);
+  padding: 30px 40px;
+}
+
+/* ---------------------------- APP COMPONENTS ---------------------------- */
+
+.codeContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+	height: 100%;
+}
+
+/* ---------------------------- CODE CONTAINER ---------------------------- */
+
+.codeWrapper {
+  width: 100%;
+  font-family: "Fira Mono", monospace;
+  align-content: center;
+  padding: 0;
+  height: 100%;
+}
+
+.codeList {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+.lineContainer {
+  list-style-type: none;
+  width: 40vw;
+  color: white;
+  display: flex;
+  text-align: left;
+  background-color: rgb(13, 1, 54);
+  min-height: 20px;
+}
+
+.lineNum {
+  width: 50px;
+  height: 100%;
+  color: rgb(255, 251, 0);
+  padding-right: 5px;
+  text-align: right;
+  border-right: 1px solid white;
+  /* background-color: darkgray; */
+  background-color: rgb(13, 1, 54);
+}
+
+.code {
+  width: 100%;
+  text-align: left;
+  padding-left: 5px;
+  /* padding: 5px 20px 0 20px; */
+}
+
+/* ---------------------------- TX COST ---------------------------- */
+
+.txCost {
+  text-align: center;
+  margin: 0;
+  padding: 5px 0 7px 0;
+}
+
+/* ---------------------------- Assembly Container ------------------------ */
+
+.assemblyCode {
+  height: 100%;
+}
+
+.asList {
+  font-size: 11px;
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  height: 100%;
+  background-color: rgb(13, 1, 54);
+}
+
+.asList li {
+  color: white;
+  list-style-type: none;
+}
+
+.innerContainer {
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.byteCode {
+  overflow-x: scroll;
+  margin: 0;
+  padding: 10px;
+  white-space: nowrap;
+  height: 25px;
+}
+
+.opCode {
+  /* height: 25px;
+	margin: 0;
+  overflow-x: scroll;
+  padding: 10px;
+	white-space: nowrap; */
+  height: calc(100vh - 400px);
+  overflow-y: scroll;
+  list-style-type: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  background-color: rgb(13, 1, 54);
+  color: white;
+}
+
+.interface {
+  display: flex;
+  padding: 10px;
+  overflow-x: scroll;
+}
