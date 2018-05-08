@@ -5,18 +5,18 @@ import ByteOpCode from './ByteOpCode.jsx';
 
 
 const SectionComponent = (props) => {
-  const types = [];
+	const types = [];
   
   if(props.type === 'contract') {
-    types.push(<Contract code={props.contract} />);
+    types.push(<Contract key={Math.random*100}code={props.contract} />);
   }
 
   if(props.type === 'assembly') {
-   types.push(<Assembly assembly={props.contract.info.assembly}/>);
+   types.push(<Assembly key={Math.random*100} assembly={props.contract.info.assembly}/>);
   }
 
   if(props.type === 'byteOpCode') {
-    types.push(<ByteOpCode info={props.contract.info}/>);
+    types.push(<ByteOpCode key={Math.random*100} info={props.contract.info}/>);
   }
 
   return (
