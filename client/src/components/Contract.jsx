@@ -4,9 +4,6 @@ import Code from "./Code.jsx";
 const Contract = (props) => {
   return (
     <div className="codeContainer">
-      <ul className="name">
-        <b>{props.name}</b>
-      </ul>
       <Code code={props.code.source} />
 			<ul className="txCost"><b>Transaction Cost</b>: {props.code.gasEst}</ul>
     </div>
