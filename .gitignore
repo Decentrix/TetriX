@@ -59,4 +59,4 @@ typings/
 
 package-lock.json
 .vscode/
-/build/
+build/bundle.js
