@@ -7,7 +7,7 @@ const settings = require('./chalkSettings');
 module.exports = {
   /**
    * @function: deploy()
-   * @param: 
+   * @param:
    *   { String } contractName: name of contract
    *   { String } oldSource: content of original contract
    *   { String } newSource: content of optimized contract
@@ -23,19 +23,17 @@ module.exports = {
     console.log(`${settings('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
     console.log(`${settings('DIFFERENCE =')} ${chalk.green(oldGas - newGas)}`);
 
-    oldStrArr = file.createCodeStrArr(oldSource);
-    newStrArr = file.createCodeStrArr(newSource);
-
     file.writeToFile(
-      Object.assign({ contractName }, oldContractObj),
-      Object.assign({ contractName }, newContractObj),
-      oldStrArr,
-      newStrArr,
+      contractName,
+      oldContractObj,
+      newContractObj,
+      file.createCodeStrArr(oldSource),
+      file.createCodeStrArr(newSource),
       oldGas,
       newGas
     );
   },
-  
+
   /**
    * @function: runVisualization()
    * @param: none

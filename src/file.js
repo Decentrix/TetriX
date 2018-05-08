@@ -20,7 +20,7 @@ module.exports = {
    * @name: createCodeStrArr
    * @param: { String } - content of contract
    * @description: cuts contract by newline
-   * @return: { String } source trimmed by newlines
+   * @return: { Array of String } source trimmed by newlines
    * @todo: test for cases where code has \n in string
    */
   createCodeStrArr: source => {
@@ -47,6 +47,7 @@ module.exports = {
   /**
    * @function: writeToFile()
    * @param:
+   *   { String } contractName: name of contract
    *   { Object } oldContract: data for original contract
    *   { Object } newContract: data for optimized contract
    *   { String } oldSource: content for original contract
