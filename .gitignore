@@ -59,5 +59,4 @@ typings/
 
 package-lock.json
 .vscode/
-client/assets/sourceObject.js
 build/bundle.js

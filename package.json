@@ -1,6 +1,6 @@
 {
   "name": "tetrix",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "- client - server",
   "main": "index.js",
   "scripts": {
