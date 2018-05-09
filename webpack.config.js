@@ -2,17 +2,14 @@ const path = require("path");
 
 module.exports = {
   //needed for webpack 4+
-  mode: "development",
+  context: path.join(__dirname, 'client'),
   //where webpack is pulling files from
-  entry: "./client/src/index.js",
+  entry: "/src/index.js",
   //where webpack is outputing normal build
   output: {
     path: path.join(__dirname, "build"),
-    filename: "./bundle.js"
+    filename: "bundle.js"
   },
-  node: {
-    fs: "empty"
-	},
   //loaders and modules that webpack will need to read your specific files
   module: {
     rules: [
@@ -37,11 +34,4 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    publicPath: "/build/",
-    contentBase: "/client/public",
-    hot: true,
-    port: 8080
-  }
 };
-console.log(__dirname);
