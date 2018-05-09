@@ -46,8 +46,8 @@ module.exports = {
    */
   runVisualization: async () => {
     if (process.argv[3] === '-v') {
-      childProcess.fork('node_modules/webpack/bin/webpack.js');
-      childProcess.fork('server/server.js');
+      childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
+      childProcess.fork('node_modules/tetrix/server/server.js');
     }
   },
 };

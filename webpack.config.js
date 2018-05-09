@@ -7,7 +7,7 @@ module.exports = {
   entry: "./client/src/index.js",
   //where webpack is outputing normal build
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.join(__dirname, "build"),
     filename: "./bundle.js"
   },
   node: {
@@ -39,7 +39,7 @@ module.exports = {
   },
   devServer: {
     publicPath: "/build/",
-    contentBase: path.join(__dirname, "client/public"),
+    contentBase: "/client/public",
     hot: true,
     port: 8080
   }
