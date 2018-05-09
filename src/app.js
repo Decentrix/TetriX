@@ -45,6 +45,7 @@ module.exports = {
    * @return: none
    */
   runVisualization: async () => {
+		console.log(__dirname+"<----- i'm here");
     if (process.argv[3] === '-v') {
 			try{
 				childProcess.fork('node_modules/webpack/bin/webpack.js --config tetrix/webpack.config.js');
