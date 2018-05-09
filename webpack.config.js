@@ -35,6 +35,5 @@ module.exports = {
 	},
 	resolve: {
 		symlinks: false,
-		modules: [path.join(__dirname, 'node_modules')],
 	}
 };
