@@ -5,7 +5,6 @@ module.exports = {
   //needed for webpack 4+
   context: path.join(__dirname, 'client'),
   //where webpack is pulling files from
-  entry: "src/index.js",
   //where webpack is outputing normal build
   output: {
     path: path.join(__dirname, "build"),
