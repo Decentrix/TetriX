@@ -207,6 +207,7 @@ body {
 
 .interface {
   display: flex;
-  padding: 10px;
+	padding: 10px;
+	max-height: 10vh;
   overflow-x: scroll;
 }
