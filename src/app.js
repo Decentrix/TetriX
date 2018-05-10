@@ -48,7 +48,7 @@ module.exports = {
 		console.log(__dirname+"<----- i'm here");
     if (process.argv[3] === '-v') {
 			try{
-				childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
+				childProcess.fork('node_modules/webpack/bin/webpack.js --config ../webpack.config.js');
 				childProcess.fork('node_modules/tetrix/server/server.js');
 			} catch(err) {
 				throw err;
