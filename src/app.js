@@ -8,45 +8,34 @@ module.exports = {
    * @function: deploy()
    * @param:
    *   { String } contractName: name of contract
-	 *   { String } oldSource: content of original contract
-	 *   { String } newSource: content of optimized contract
-	 * @description: container functionality for deploying and writing to file the contract
-	 * @return: none
+   *   { String } oldSource: content of original contract
+   *   { String } newSource: content of optimized contract
+   * @description: container functionality for deploying and writing to file the contract
+   * @return: none
    */
-	deploy: async (contractName, oldSource, newSource) => {
-		if (process.argv[3] === '-v') {
-			try{
-				childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
-			} catch(err) {
-				throw err;
-			}
-		} else {
-			console.log(`${BLUE('DEPLOYING ORIGINAL CONTRACT')}`);
-			const oldContractObj = await contract.compileContract(oldSource, contractName);
-			oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface);
-			console.log(`${BLUE('DEPLOYING OPTIMIZED CONTRACT')}`);
-			const newContractObj = await contract.compileContract(newSource, contractName);
-			newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface);
-			console.log(`${BLUE('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
-			console.log(`${BLUE('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
-			console.log(`${BLUE('DIFFERENCE =')} ${GREEN(oldGas - newGas)}`);
-			const oldStrArr = file.createCodeStrArr(oldSource);
-			const newStrArr = file.createCodeStrArr(newSource);
-			file.writeToFile(
-				contractName,
-				oldContractObj,
-				newContractObj,
-				oldStrArr,
-				newStrArr,
-				oldGas,
-				newGas
-			);
-			try {
-				childProcess.fork('node_modules/tetrix/server/server.js');
-			} catch(err) {
-				throw err;
-			}
-		}
+  deploy: async (contractName, oldSource, newSource) => {
+    console.log(`${BLUE('DEPLOYING ORIGINAL CONTRACT')}`);
+    const oldContractObj = await contract.compileContract(oldSource, contractName);
+    oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface);
+    console.log(`${BLUE('DEPLOYING OPTIMIZED CONTRACT')}`);
+    const newContractObj = await contract.compileContract(newSource, contractName);
+    newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface);
+    console.log(`${BLUE('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
+    console.log(`${BLUE('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
+    console.log(`${BLUE('DIFFERENCE =')} ${GREEN(oldGas - newGas)}`);
+		const oldStrArr = file.createCodeStrArr(oldSource);
+		const newStrArr = file.createCodeStrArr(newSource);
+		
+
+    file.writeToFile(
+			contractName,
+      oldContractObj,
+      newContractObj,
+      oldStrArr,
+      newStrArr,
+      oldGas,
+      newGas
+    );
   },
 
   /**
@@ -57,6 +46,18 @@ module.exports = {
    */
   runVisualization: async () => {
 		console.log(__dirname+"<----- i'm here");
-    
+    if (process.argv[3] === '-v') {
+			try{
+				childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
+			} catch(err) {
+				throw err;
+			}
+    } else {
+			try {
+				childProcess.fork('node_modules/tetrix/server/server.js');
+			} catch(err) {
+				throw err;
+			}
+		}
   },
 };
