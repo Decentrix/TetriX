@@ -15,7 +15,8 @@ module.exports = {
     rules: [
       {
 				test: /\.jsx?$/,
-				include: [/..((\/babel.*)|(\/webpack)|(\/react.*))/],
+				exclude: [/node_modules/],
+				include: [/node_modules((\/babel.*)|(\/webpack)|(\/react.*))/],
         loader: "babel-loader",
         query: {
           presets: ["es2015", "react"]
