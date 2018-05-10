@@ -56,10 +56,9 @@ module.exports = {
    * @return: none
    */
   runVisualization: async () => {
-    console.log(__dirname + "<----- i'm here");
-    if (process.argv.includes("-v")) {
+    if (process.argv[3] === ('-v')) {
       try {
-        childProcess.fork("node_modules/tetrix/server/server.js");
+        childProcess.fork("./node_modules/tetrix/server/server.js");
       } catch (err) {
         throw err;
       }

@@ -11,7 +11,7 @@ module.exports = {
    * @todo: TODO test for cases where number of arguments does not match requirement
    */
   extractPath: argv => {
-    let contractPath = argv.slice(2);
+    let contractPath = argv[2];
     console.log(`${BLUE('CONTRACT PATH =')} ${contractPath}`);
     return contractPath;
   },
