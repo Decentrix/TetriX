@@ -1,5 +1,5 @@
 <h1 align="center"> TetriX
-<img align="center" src=""> <!-- logo here -->
+<img align="center" src="./Tetrix.png"> <!-- logo here -->
 <br>
 </h1>
 
