@@ -12,7 +12,6 @@ const newSource = opt.optimize(oldSource);
 const contractName = contract.getName(oldSource);
 
 app.deploy(contractName, oldSource, newSource)
-  .then(app.runVisualization)
   .catch(err => {
     throw err;
   });
