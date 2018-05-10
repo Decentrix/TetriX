@@ -46,18 +46,10 @@ module.exports = {
    */
   runVisualization: async () => {
 		console.log(__dirname+"<----- i'm here");
-    if (process.argv[3] === '-v') {
-			try{
-				childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
-			} catch(err) {
-				throw err;
-			}
-    } else {
 			try {
 				childProcess.fork('node_modules/tetrix/server/server.js');
 			} catch(err) {
 				throw err;
 			}
-		}
   },
 };
