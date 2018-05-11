@@ -34,7 +34,7 @@ To use Tetrix run
 $ Tetrix YOUR_SOL_FILE_PATH
 ```
 
-To see details on the localhost server: 
+#### View Contract Detail 
 
 In package.json include a new script in scripts: 
 ```
@@ -42,8 +42,7 @@ In package.json include a new script in scripts:
     "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
   },
 ```
-
-then, run 
+Run
 ```
 $ npm run tetrixGUI
 ```
