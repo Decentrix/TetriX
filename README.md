@@ -23,26 +23,30 @@ More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/i
 
 ### Installing
 
+To use latest stable version of Tetrix you can install it via npm: 
+
 ``` 
 $ npm install tetrix 
 ```
 
-### Usage
+### Usage on the Command-Line
 
-To use Tetrix run
+#### Compile Contract and Deploy to Local Virtual Blockchain
+
+To use Tetrix, execute: 
 ```
 $ Tetrix YOUR_SOL_FILE_PATH
 ```
 
 #### View Contract Detail 
 
-In package.json include a new script in scripts: 
+In package.json, include a new script in scripts:
 ```
 "scripts": {
   "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
 },
 ```
-Run
+then, execute:
 ```
 $ npm run tetrixGUI
 ```
