@@ -70,6 +70,12 @@ $ npm run tetrixGUI
 ## Built With
 
 * [Ethereum](https://vuejs.org/) - The web framework used
+* [React](https://github.com/facebook/react) - Used for Front-end Single Page Application
+* [React-Router](https://github.com/ReactTraining/react-router) - Route Management in a Single Page Application
+* [Ganache](https://github.com/trufflesuite/ganache) - Local Personal Blockchain Environment
+* [Web3](https://github.com/ethereum/web3.js) - Ethereum Javascript API
+* [Solc](https://github.com/ethereum/solc-js) - Javascript Solidity Compiler
+
 
 ## Contributing
 
