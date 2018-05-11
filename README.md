@@ -1,11 +1,8 @@
-<h1 align="center">
-<img align="center" src="./Tetrix.png">
-<br>
-</h1>
+<h1 align="center"><img align="center" src="./Tetrix.png"></h1>
 
 <p align="center">An optimization tool for lowering your gas costs during for <a href="http://solidity.readthedocs.io/en/v0.4.23/" target="_blank">Solidity</a> contract instantiation.</p>
 
-<h4 align="center"><a href="https://google.com"><img src="https://img.shields.io/github/release/vuetwo/vuetron/all.svg"></a>
+<h4 align="center"><a href="https://google.com"><img src="https://img.shields.io/github/release/decentrix/tetrix/all.svg"></a>
 
 </h4>
 
