@@ -18,13 +18,14 @@ Tetrix is available as the ```tetrix``` package on [npm]("https://www.npmjs.com/
 
 Tetrix can be used on any single-contract solidity file. You can optimize contract construction cost with it, but you can also view details about your contract such as ABI, bytecode, opcode and assembly. 
 
-###Prerequisites
+### Prerequisites
 
-To install Tetrix, make sure package.json has been initiated in your project folder. More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/init)
+To install Tetrix, make sure package.json has been initiated in your project folder. 
+More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/init)
 
-###Installing
+### Installing
 
-In your command line:
+In the command line:
 
 ``` 
 npm install tetrix 
