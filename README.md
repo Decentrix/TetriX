@@ -63,8 +63,9 @@ $ npm run tetrixGUI
 ###	Front-End Display of Smart Contract Information
 
 *	Client-side local hosted server (PORT 8080)
-<img align="center" src="./DOCS/Images/webTetrix.gif" width="600">
-
+<div align="Center">
+	<img align="center" src="./DOCS/Images/webTetrix.gif" width="900" height="600">
+</div>
 
 ## Built With
 
