@@ -31,7 +31,7 @@ $ npm install tetrix
 
 To use Tetrix run
 ```
-$ Tetrix YOUR_SOL_FILE_PATH
+$ Tetrix YOUR_SOL_FILE_PATH.sol
 ```
 
 #### View Contract Detail 
@@ -69,7 +69,6 @@ $ npm run tetrixGUI
 
 ## Built With
 
-* [Ethereum](https://vuejs.org/) - The web framework used
 * [React](https://github.com/facebook/react) - Used for Front-end Single Page Application
 * [React-Router](https://github.com/ReactTraining/react-router) - Route Management in a Single Page Application
 * [Ganache](https://github.com/trufflesuite/ganache) - Local Personal Blockchain Environment
