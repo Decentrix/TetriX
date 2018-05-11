@@ -26,7 +26,7 @@ To install Tetrix, make sure package.json has been initiated in your project fol
 
 In your command line:
 
-``` npm install tetrix ````
+``` npm install tetrix ```
 
 ## Key Features
 
