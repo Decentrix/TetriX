@@ -21,6 +21,7 @@ Tetrix can be used on any single-contract solidity file. You can optimize contra
 ### Prerequisites
 
 To install Tetrix, make sure package.json has been initiated in your project folder. 
+
 More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/init)
 
 ### Installing
