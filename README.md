@@ -7,7 +7,7 @@
 </h4>
 
 ## Why TetriX?
-
+There are three main concerns Ethereum developers have when designing smart contracts: security, accuracy, and cost. We sought to tackle the problem of ***cost*** by creating a tool that automates the reordering of state variables during contract instantiation in order to lower transaction costs. We ensured efficient memory allocation by reorganizing your state variables to take up the minimal amount of storage slots necessary.
 
 ## Getting Started
 
@@ -98,6 +98,5 @@ See also the list of [contributors](./docs/CONTRIBUTORS.md) who participated in 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
 
 ## Acknowledgments
-
 * Support from other open source developers
 * And the entire Ethereum developer community
