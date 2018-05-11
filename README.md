@@ -1,6 +1,6 @@
-<h1 align="center"><img align="center" src="./Tetrix.png"></h1>
+<h1 align="center"><img align="center" src="./DOCS/Images/Tetrix.png"></h1>
 
-<p align="center">An optimization tool for lowering your gas costs during for <a href="http://solidity.readthedocs.io/en/v0.4.23/" target="_blank">Solidity</a> contract instantiation.</p>
+<p align="center">An optimization tool for lowering your gas costs during <a href="http://solidity.readthedocs.io/en/v0.4.23/" target="_blank">Solidity</a> contract instantiation.</p>
 
 <h4 align="center"><a href="https://google.com"><img src="https://img.shields.io/github/release/decentrix/tetrix/all.svg"></a>
 
@@ -78,6 +78,8 @@ $ npm run tetrixGUI
 * [Ganache](https://github.com/trufflesuite/ganache) - Local Personal Blockchain Environment
 * [Web3](https://github.com/ethereum/web3.js) - Ethereum Javascript API
 * [Solc](https://github.com/ethereum/solc-js) - Javascript Solidity Compiler
+* [Express](https://github.com/expressjs/express) - Web Framework for node.
+* [Webpack](https://github.com/webpack/webpack) - Bundler for javascripts/React
 
 
 ## Contributing

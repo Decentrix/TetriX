@@ -27,8 +27,9 @@ module.exports = {
   // TODO: TEST FOR CASES WHERE NUMARG != 3
   extractContent: params => {
     const solRegex = /\.sol$/g;
-    const contractPath = path.resolve(process.cwd(), params[0]);
-    let source;
+    const contractPath = path.resolve(process.cwd(), params);
+		let source;
+		console.log(contractPath,"<------ contract path");
     if (contractPath.match(solRegex) && fs.existsSync(contractPath)) {
       source = fs.readFileSync(contractPath, 'utf8');
     } else {

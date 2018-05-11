@@ -1,7 +1,7 @@
-const childProcess = require('child_process');
-const contract = require('./contract');
-const file = require('./file');
-const { BLUE, GREEN, RED } = require('./utils/chalkSettings');
+const childProcess = require("child_process");
+const contract = require("./contract");
+const file = require("./file");
+const { BLUE, GREEN, RED } = require("./utils/chalkSettings");
 
 module.exports = {
   /**
@@ -14,21 +14,32 @@ module.exports = {
    * @return: none
    */
   deploy: async (contractName, oldSource, newSource) => {
-    console.log(`${BLUE('DEPLOYING ORIGINAL CONTRACT')}`);
-    const oldContractObj = await contract.compileContract(oldSource, contractName);
-    oldGas = await contract.startTestNetwork(oldContractObj.bytecode, oldContractObj.interface);
-    console.log(`${BLUE('DEPLOYING OPTIMIZED CONTRACT')}`);
-    const newContractObj = await contract.compileContract(newSource, contractName);
-    newGas = await contract.startTestNetwork(newContractObj.bytecode, newContractObj.interface);
-    console.log(`${BLUE('ORIGINAL GAS ESTIMATE =')} ${oldGas}`);
-    console.log(`${BLUE('OPTIMIZED GAS ESTIMATE =')} ${newGas}`);
-    console.log(`${BLUE('DIFFERENCE =')} ${GREEN(oldGas - newGas)}`);
-		const oldStrArr = file.createCodeStrArr(oldSource);
-		const newStrArr = file.createCodeStrArr(newSource);
-		
+    console.log(`${BLUE("DEPLOYING ORIGINAL CONTRACT")}`);
+    const oldContractObj = await contract.compileContract(
+      oldSource,
+      contractName
+    );
+    oldGas = await contract.startTestNetwork(
+      oldContractObj.bytecode,
+      oldContractObj.interface
+    );
+    console.log(`${BLUE("DEPLOYING OPTIMIZED CONTRACT")}`);
+    const newContractObj = await contract.compileContract(
+      newSource,
+      contractName
+    );
+    newGas = await contract.startTestNetwork(
+      newContractObj.bytecode,
+      newContractObj.interface
+    );
+    console.log(`${BLUE("ORIGINAL GAS ESTIMATE =")} ${oldGas}`);
+    console.log(`${BLUE("OPTIMIZED GAS ESTIMATE =")} ${newGas}`);
+    console.log(`${BLUE("DIFFERENCE =")} ${GREEN(oldGas - newGas)}`);
+    const oldStrArr = file.createCodeStrArr(oldSource);
+    const newStrArr = file.createCodeStrArr(newSource);
 
     file.writeToFile(
-			contractName,
+      contractName,
       oldContractObj,
       newContractObj,
       oldStrArr,
@@ -45,19 +56,14 @@ module.exports = {
    * @return: none
    */
   runVisualization: async () => {
-		// console.log(__dirname+"<----- i'm here");
-    // if (process.argv[3] === '-v') {
-		// 	try{
-		// 		childProcess.fork('node_modules/webpack/bin/webpack.js --config node_modules/tetrix/webpack.config.js');
-		// 	} catch(err) {
-		// 		throw err;
-		// 	}
-    // } else {
-		// 	try {
-		// 		childProcess.fork('node_modules/tetrix/server/server.js');
-		// 	} catch(err) {
-		// 		throw err;
-		// 	}
-		// }
-  },
+    console.log(__dirname + "<----- i'm here");
+    if (process.argv[3] === "-v") {
+      try {
+        childProcess.fork("node_modules/webpack/bin/webpack.js");
+        childProcess.fork("server/server.js");
+      } catch (err) {
+        throw err;
+      }
+    }
+  }
 };
