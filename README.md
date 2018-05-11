@@ -26,10 +26,29 @@ More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/i
 
 ### Installing
 
-In the command line:
-
 ``` 
-npm install tetrix 
+$ npm install tetrix 
+```
+
+### Usage
+
+To use Tetrix run
+```
+$ Tetrix YOUR_SOL_FILE_PATH
+```
+
+To see details on the localhost server: 
+
+In package.json include a new script in scripts
+```
+"scripts": {
+    "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
+  },
+```
+
+run 
+```
+$ npm run tetrixGUI
 ```
 
 ## Key Features
