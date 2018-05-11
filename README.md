@@ -36,14 +36,14 @@ $ Tetrix YOUR_SOL_FILE_PATH
 
 To see details on the localhost server: 
 
-In package.json include a new script in scripts
+In package.json include a new script in scripts: 
 ```
 "scripts": {
     "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
   },
 ```
 
-run 
+then, run 
 ```
 $ npm run tetrixGUI
 ```
