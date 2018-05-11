@@ -39,8 +39,8 @@ $ Tetrix YOUR_SOL_FILE_PATH
 In package.json include a new script in scripts: 
 ```
 "scripts": {
-    "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
-  },
+  "tetrixGUI": "webpack --config node_modules/tetrix/webpack.config.js && node node_modules/tetrix/server/server.js"
+},
 ```
 Run
 ```
@@ -49,11 +49,22 @@ $ npm run tetrixGUI
 
 ## Key Features
 
-#### Feature 1:
+### Optimize Contract State Variables Memory Allocation
 
-## Testing
+*	Rearranges the Smart Contract state variables in order to allocate the least memory slot possible on the blockchain to optimize gas usage.
+	*	Parse through user Smart Contract and detect state variables
+	*	Arrange variables based on a 32Bytes memory slot.
 
-Read the [TESTING.md](./docs/TESTING.md) file for more information on running tests.
+###	Create Personal Blockchain Development Environment
+
+*	Compiles user's Smart Contract using Solidity Compiler for retrieving accurate contract information.
+*	Deploys user's Smart Contract with [trufflesuit/ganache](https://github.com/trufflesuite/ganache) to avoid the need for paying for the main Ethereum Blockchain
+
+###	Front-End Display of Smart Contract Information
+
+*	Client-side local hosted server (PORT 8080)
+<img align="center" src="./DOCS/Images/webTetrix.gif" width="600">
+
 
 ## Built With
 
