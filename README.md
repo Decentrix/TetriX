@@ -62,7 +62,7 @@ $ npm run tetrixGUI
 ###	Create Personal Blockchain Development Environment
 
 *	Compiles user's Smart Contract using Solidity Compiler for retrieving accurate contract information.
-*	Deploys user's Smart Contract with [trufflesuit/ganache](https://github.com/trufflesuite/ganache) to avoid the need for paying for the main Ethereum Blockchain
+*	Deploys user's Smart Contract with [trufflesuite/ganache](https://github.com/trufflesuite/ganache) to avoid the need for paying for the main Ethereum Blockchain
 
 ###	Front-End Display of Smart Contract Information
 
@@ -86,8 +86,6 @@ $ npm run tetrixGUI
 
 Found a bug? Have a suggestion? Feel free to submit issues!
 
-Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests if you're interesting in contributing to this project!
-
 ## Authors
 
 * **Esther Kim** - [https://github.com/choisiesther](https://github.com/choisiesther)
@@ -100,7 +98,7 @@ See also the list of [contributors](./docs/CONTRIBUTORS.md) who participated in 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
 * Support from other open source developers
