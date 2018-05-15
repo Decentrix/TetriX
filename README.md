@@ -27,7 +27,7 @@ More info on how to initiate package.json go [Here](https://docs.npmjs.com/cli/i
 To use latest stable version of Tetrix you can install it via npm: 
 
 ``` 
-$ npm install tetrix 
+$ npm install tetrix-sol 
 ```
 
 ### Usage on the Command-Line
