@@ -2,7 +2,7 @@
 
 <p align="center">An optimization tool for lowering your gas costs during <a href="http://solidity.readthedocs.io/en/v0.4.23/" target="_blank">Solidity</a> contract instantiation.</p>
 
-<h4 align="center"><a href="https://google.com"><img src="https://img.shields.io/github/release/decentrix/tetrix/all.svg"></a>
+<h4 align="center"><a href="https://google.com"><img src="https://img.shields.io/npm/v/tetrix-sol.svg"></a>
 
 </h4>
 
